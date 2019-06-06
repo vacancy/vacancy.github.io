@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Neuro-Symbolic Concept Learner</title>
+    <meta name="description" content="The Neuro-Symbolic Concept Learner">
+    <meta name="keywords" content="MIT,Vision,Scene,Language,Learning,Reasoning,Computer Science">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+body{font-family:"Open Sans",Segoe,"Segoe UI","Lucida Sans Unicode","Lucida Grande","Avenir","Seravek","Ubuntu","DejaVu Sans","Trebuchet MS",Verdana,Arial,sans-serif}
+body{margin:0;padding:0;background-color:#f4f4f4}
+#header{background:#eee;opacity:0.95;margin:0 auto;padding:50px 0 0;text-align:center;cursor:default;text-align:center}
+#header-container{margin:0 auto;padding: 0 2em;max-width:1600px}
+
+#header-container .col-logo{text-align:left}
+#header-container .logo{position:relative;z-index:100;height:50px;margin-top:20px;margin-right:10px}
+
+#header-container .col-info{text-align:left;margin-bottom:20px}
+#header-container #title{margin:.525em 0 1.525em;font-size:1.6em;font-weight:800;text-align:center}
+
+.paper-info{display:inline-block;margin:0 auto;text-align:left}
+.paper-info-margin{margin-bottom:20px}
+.paper-info p, .paper-info h3{line-height:1.6em; margin-bottom: 0em}
+.paper-info .title{font-size:16px;color:#333333;font-weight:600}
+.paper-info .authors, .paper-info .authors a{color:#666666}
+.paper-info .email{color:#666; font-size:14px}
+.paper-info .tag{margin:auto auto;padding:0;list-style:none;text-align:left}
+.paper-info .tag li{display:inline-block;margin:auto;padding:0 3px 0 0;line-height:10px}
+.paper-info .conference, .paper-info .conference a{color:#BB2222;font-weight:600}
+
+#wave-canvas{display:block;margin:-80px 0 0;width:100%;height:150px}
+
+#content{padding-top:0px;text-align:left}
+#content-container{margin:0 auto;padding: 0 2em;max-width:1600px;color:#333333}
+
+#content-container .header{background:#eee;padding:15px 30px 5px;border-bottom:3px solid #dddddd}
+#content-container .header .indicator{color:#777777;margin-right:12px}
+
+#content-container .content{background:#ffffff;padding:15px 5px 15px 30px}
+#content-container .content .caption{color:#666666}
+#content-container .content .bib{color:#666666;font-size:14px;}
+#content-container .content .bib pre{margin:0;padding:0;}
+
+#footer{padding:2em 0 0.5em;margin:30px 0 0;background:#ffffff;opacity:0.95;font-size:14px;line-height:12px;text-align:center}
+.highlight, .highlight a{color:#BB2222;font-weight:600}
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <div id="header-container" class="container">
+          <div class="row">
+            <div class="col-md-12 col-xl-12 col-info">
+                <h1 id="title">The Neuro-Symbolic Concept Learner</h1>
+                <div class="paper-info">
+                    <h3 class="title">The Neuro-Symbolic Concept Learner: Interpreting Scenes, Words, and Sentences From Natural Supervision</h3>
+                    <p class="authors">
+                    <a href="http://jiayuanm.com">Jiayuan Mao</a>,
+                    <a href="http://people.csail.mit.edu/ganchuang">Chuang Gan</a>,
+                    <a href="https://sites.google.com/site/pushmeet">Pushmeet Kohli</a>,
+                    <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
+                    <a href="http://jiajunwu.com">Jiajun Wu</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="http://iclr.cc">ICLR 2019</a> <span class="highlight">(Oral)</span></li>
+                        <li><a href="http://nscl.csail.mit.edu/data/papers/2019ICLR-NSCL.pdf">Paper</a> /</li>
+                        <li style="margin-right:40px"><a href="http://nscl.csail.mit.edu/data/bibtex/2019ICLR-NSCL.bib">BibTeX</a></li>
+                        <li style="font-weight:600">Media Coverage:</li>
+                        <li><a href="http://news.mit.edu/2019/teaching-machines-to-reason-about-what-they-see-0402">MIT News</a> /</li>
+                        <li><a href="https://www.technologyreview.com/s/613270/two-rival-ai-approaches-combine-to-let-machines-learn-about-the-world-like-a-child/">MIT Technology Review</a></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <canvas id="wave-canvas"></canvas>
+    </div>
+    <div id="content">
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Overview</h4></div>
+            <div class="content">
+                        <p>
+            We propose the Neuro-Symbolic Concept Learner (NS-CL), a model that learns visual concepts, words, and semantic parsing of sentences without explicit supervision on any of them;
+            instead, our model learns by simply looking at images and reading paired questions and answers.
+            </p>
+
+            <p>
+            <center>
+            <img width="60%" src="data/img/vqa_example.png"/>
+            </center>
+            </p>
+            <p class="caption">
+            Figure 1: An example image-question pair from the VQS dataset and the corresponding execution trace of the proposed <i>NS-CL</i>.
+            </p>
+
+            <p>Our model builds an object-based scene representation and translates sentences into executable, symbolic programs.
+            To bridge the learning of two modules, we use a neuro-symbolic reasoning module that executes these programs on the latent scene representation.
+            Analogical to human concept learning, the perception module learns visual concepts based on the language description of the object being referred to.
+            Meanwhile, the learned visual concepts facilitate learning new words and parsing new sentences. We use curriculum learning to guide the searching over the large compositional space of images and language.
+            Extensive experiments demonstrate the accuracy and efficiency of our model on learning visual concepts, word representations, and semantic parsing of sentences.
+            Further, our method allows easy generalization to new object attributes, compositions, language concepts, scenes and questions, and even new program domains. It also empowers applications including visual question answering and bidirectional image-text retrieval.
+            </p>
+            <p>
+            </div>
+        </div>
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Framework</h4></div>
+            <div class="content">
+            <p>
+            <center>
+            <img width="100%" src="data/img/framework.png"/>
+            </center>
+            </p>
+            <p class="caption">
+            Figure 2: We first use a visual perception module to construct an object-based representation
+for a scene, and run a semantic parsing module to translate a question into an executable program. We
+then apply a quasi-symbolic program executor to infer the answer based on the scene representation.
+We use paired images, questions, and answers to jointly train the visual and language modules..
+            </p>
+
+            <dl class="row">
+                <dt class="col-sm-3">The perception module.</dt>
+                <dd class="col-sm-9">Given the input image, we generate object proposals, and extract visual representations for each of the proposal.
+                <dt class="col-sm-3">The semantic parsing module.</dt>
+                <dd class="col-sm-9">The semantic parsing module translates a natural language question into an executable program with a hierarchy of primitive operations.
+                Each concept in the program corresponds to a vector embedding that is jointly trained.
+                </dd>
+                <dt class="col-sm-3">The quasi-symbolic reasoning module.</dt>
+                <dd class="col-sm-9">
+                Given the recovered program, a symbolic program executor executes the program and derives the answer based
+on the object-based visual representation and the concept embeddings. Our program executor is a collection of deterministic
+functional modules.
+                </dd>
+            </dl>
+            </div>
+        </div>
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Code</h4></div>
+            <div class="content"><p>The Neuro-Symbolic Concept Learner in <a href="https://github.com/vacancy/NSCL-PyTorch-Release">[PyTorch (Official)]</a>.</p></div>
+        </div>
+
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Related Publications</h4></div>
+            <div class="content">
+                <div class="paper-info paper-info-margin">
+                    <h3 class="title">Neural-Symbolic VQA: Disentangling Reasoning from Vision and Language Understanding</h3>
+                    <p class="authors">
+                        Kexin Yi*,
+                        <a href="http://jiajunwu.com/">Jiajun Wu</a>*,
+                        <a href="http://people.csail.mit.edu/ganchuang/">Chuang Gan</a>,
+                        <a href="http://web.mit.edu/torralba/www/">Antonio Torralba</a>,
+                        <a href="https://sites.google.com/site/pushmeet/">Pushmeet Kohli</a>, and
+                        <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="https://nips.cc/Conferences/2018">NeurIPS 2018</a> (Spotlight)</li>
+                        <li><a href="http://nsvqa.csail.mit.edu/papers/nsvqa_nips.pdf">Paper</a> /</li>
+                        <li><a href="http://nsvqa.csail.mit.edu">Project Page</a> /</li>
+                        <li><a href="http://nsvqa.csail.mit.edu/bibtex/nsvqa_nips.bib">BibTeX</a></li>
+                        <li class="authors">(* indicates equal contributions)</li>
+                    </ul>
+                </div>
+                <div class="paper-info">
+                    <h3 class="title">Neural Scene De-rendering</h3>
+                    <p class="authors">
+                        <a href="http://jiajunwu.com">Jiajun Wu</a>,
+                        <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
+                        <a href="https://sites.google.com/site/pushmeet">Pushmeet Kohli</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="http://cvpr2017.thecvf.com/">CVPR 2017</a></li>
+                        <li><a href="http://nsd.csail.mit.edu/papers/nsd_cvpr.pdf">Paper</a> /</li>
+                        <li><a href="http://nsd.csail.mit.edu">Project Page /</a></li>
+                        <li><a href="http://nsd.csail.mit.edu/bibtex/nsd_cvpr.bib">BibTeX</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>The Paper Authors © 2019</p>
+    </div>
+</div>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
+<script type="text/javascript" src="static/js/wave.js"></script>
+<script type="text/javascript">
+$(function() {
+    targetColor = $("#title").css("color")
+    animatedLink = function(speed) {
+        $(".link-li").hover(function() {
+            $(this).find('.icon').animate({
+                color: targetColor,
+                borderColor: targetColor
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#798350'
+            })
+        }, function() {
+            $(this).find('.icon').animate({
+                borderColor: '#cccccc',
+                color: '#cccccc'
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#cccccc'
+            })
+        })
+    };
+    // fullBg();
+    animatedLink(400)
+});
+</script>
+</body>
+</html>

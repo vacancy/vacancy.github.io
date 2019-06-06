@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Universal Agent</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+body{margin:0;padding:0;background-color:#eee}
+#header{background:#ddd;opacity:0.95;margin:0 auto;padding:50px 0 0;text-align:center;cursor:default;text-align:center}
+#header-container{margin:0 auto;padding: 0 2em;max-width:1080px}
+
+#header-container .col-logo{text-align:left}
+#header-container .logo{position:relative;z-index:100;height:50px;margin-top:20px;margin-right:10px}
+
+#header-container .col-info{text-align:left}
+#header-container .textbox-info{display:inline-block;margin:0 auto;text-align:left}
+#header-container .textbox-info #title{margin:.525em 0;color:#005ca1;font-size:1.60em;font-family:Source Sans Pro,Helvetica,sans-serif} #link-ul{margin:30px auto auto;padding:0;list-style:none;text-align:center} .link-li{display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
+#header-container .textbox-info p{line-height:12px}
+#header-container .textbox-info .email{color:#666; font-size:14px;}
+#wave-canvas{display:block;margin:-80px 0 0;width:100%;height:150px}
+
+#content{padding-top:0px;text-align:left}
+#content-container{margin:0 auto;padding: 0 2em;max-width:1080px;color:#333333}
+
+#content-container .header{background:#f4f4f4;padding:15px 30px 5px;border-bottom:3px solid #dddddd}
+#content-container .header .indicator{color:#777777;margin-right:12px}
+
+#content-container .content{background:#ffffff;padding:15px 5px 15px 30px}
+#content-container .content .caption{color:#666666}
+#content-container .content .bib{color:#666666;font-size:14px;}
+#content-container .content .bib pre{margin:0;padding:0;}
+
+#footer{padding:2em 0 0.5em;margin:30px 0 0;background:#f4f4f4;opacity:0.95;font-size:14px;line-height:12px;text-align:center}
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <div id="header-container" class="container">
+          <div class="row">
+            <div class="col-md-12 col-xl-4 col-logo">
+                <img src="data/img/logo-thu.png" class="logo" />
+                <img src="data/img/logo-USC-full.png" class="logo" />
+            </div>
+            <div class="col-md-12 col-xl-8 col-info">
+                <div class="textbox-info">
+                    <h1 id="title">Universal Agent for Disentangling Environments and Tasks</h1>
+                    <p>
+                    <a href="http://jiayuanm.com">Jiayuan Mao</a>,
+                    <a href="https://github.com/dhh1995">Honghua Dong</a>,
+                    <a href="http://www-bcf.usc.edu/~limjj/">Joseph J. Lim</a>
+                    </p>
+                    <p class="conference">In <a href="http://iclr.cc">International Conference on Learning Representations</a> (2018)</p>
+                    <p class="links">Links:
+                    <a href="https://openreview.net/forum?id=B1mvVm-C-">Paper</a>
+                    <!--[arXiv]-->
+                    <!--[Code]-->
+                    </p>
+                    <p class="email">maojiayuan [at] gmail.com, dhh19951 [at] gmail.com, limjj [at] usc.edu</p>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <canvas id="wave-canvas"></canvas>
+    </div>
+    <div id="content">
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Overview</h4></div>
+            <div class="content">
+            <p>
+            Recent state-of-the-art reinforcement learning algorithms are trained under the goal of excelling in one specific task.
+            Hence, both environment and task specific knowledge are entangled into one framework.
+            However, there are often scenarios where the environment (e.g. the physical world) is fixed while only the target task changes.
+            Hence, borrowing the idea from hierarchical reinforcement learning, we propose a framework that disentangles task and environment specific knowledge by separating them into two units.
+            The environment-specific unit handles how to move from one state to the target state; and the task-specific unit plans for the next target state given a specific task.
+            The extensive results in simulators indicate that our method can efficiently separate and learn two independent units, and also adapt to a new task more efficiently than the state-of-the-art methods.
+            </p>
+            <p>
+            <b>TL;DR</b>: We propose a DRL framework that disentangles task and environment specific knowledge.
+            </p>
+            </div>
+        </div>
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Framework</h4></div>
+            <div class="content">
+            <p>
+            <center>
+            <img width="80%" src="data/img/ua.png"/>
+            </center>
+            </p>
+            <p class="caption">
+            Figure1: Proposed <i>Universal Agent</i>, which consists of three parts: a perception function (phi) mapping raw observation to feature space,
+            a path function as an environment actor, and a goal function (tau) for future state planning.
+            </p>
+
+            <dl class="row">
+                <dt class="col-sm-3">The perception module (<i>phi</i>)</dt>
+                <dd class="col-sm-9">Given the raw observation of the state, the perception function <i>phi</i> encodes the observation into a feature space.
+                It can be jointly optimized with <i>path</i>, or separately obtained (e.g., Auto-Encoder).</dd>
+                <dt class="col-sm-3">The environment-specific module (<i>path</i>)</dt>
+                <dd class="col-sm-9">
+                Given a <i>(current state s, goal state s')</i> pair. The <i>path</i> function outputs a probability distribution over the action space for the first action to take
+                at state s in order to reach state s'.
+                </dd>
+                <dt class="col-sm-3">The task-specific module (<i>tau</i>)</dt>
+                <dd class="col-sm-9">
+                Given the current state. the goal function (<i>tau</i>) determines what the goal state should be for a specific task.
+                The <i>path</i> function is then invoked to get the next primitive action.
+                </dd>
+            </dl>
+            </div>
+        </div>
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Resources</h4></div>
+            <div class="content">
+            If you find this project useful, please consider citing:
+            <blockquote class="blockquote bib">
+            <pre>@inproceedings{
+    mao2018universal,
+    title={Universal Agent for Disentangling Environments and Tasks},
+    author={Jiayuan Mao and Honghua Dong and Joseph J. Lim},
+    booktitle={International Conference on Learning Representations},
+    year={2018},
+    url={https://openreview.net/forum?id=B1mvVm-C-},
+}</pre>
+            </blockquote>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>The Paper Authors © 2018</p>
+    </div>
+</div>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
+<script type="text/javascript" src="static/js/wave.js"></script>
+<script type="text/javascript">
+$(function() {
+    targetColor = $("#title").css("color")
+    animatedLink = function(speed) {
+        $(".link-li").hover(function() {
+            $(this).find('.icon').animate({
+                color: targetColor,
+                borderColor: targetColor
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#798350'
+            })
+        }, function() {
+            $(this).find('.icon').animate({
+                borderColor: '#cccccc',
+                color: '#cccccc'
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#cccccc'
+            })
+        })
+    };
+    // fullBg();
+    animatedLink(400)
+});
+</script>
+</body>
+</html>

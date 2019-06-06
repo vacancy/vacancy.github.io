@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Neurally-Guided Structure Inference</title>
+    <meta name="description" content="Neurally-Guided Structure Inference">
+    <meta name="keywords" content="MIT,Structure Inference,Guided Search,Computer Science">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+body{font-family:"Open Sans",Segoe,"Segoe UI","Lucida Sans Unicode","Lucida Grande","Avenir","Seravek","Ubuntu","DejaVu Sans","Trebuchet MS",Verdana,Arial,sans-serif}
+body{margin:0;padding:0;background-color:#f4f4f4}
+#header{background:#eee;opacity:0.95;margin:0 auto;padding:50px 0 0;text-align:center;cursor:default;text-align:center}
+#header-container{margin:0 auto;padding: 0 2em;max-width:1600px}
+
+#header-container .col-logo{text-align:left}
+#header-container .logo{position:relative;z-index:100;height:50px;margin-top:20px;margin-right:10px}
+
+#header-container .col-info{text-align:left;margin-bottom:20px}
+#header-container #title{margin:.525em 0 1.525em;font-size:1.6em;font-weight:800;text-align:center}
+
+.paper-info{display:inline-block;margin:0 auto;text-align:left}
+.paper-info-margin{margin-bottom:20px}
+.paper-info p, .paper-info h3{line-height:1.6em; margin-bottom: 0em}
+.paper-info .title{font-size:16px;color:#333333;font-weight:600}
+.paper-info .authors, .paper-info .authors a{color:#666666}
+.paper-info .email{color:#666; font-size:14px}
+.paper-info .tag{margin:auto auto;padding:0;list-style:none;text-align:left}
+.paper-info .tag li{display:inline-block;margin:auto;padding:0 3px 0 0;line-height:10px}
+.paper-info .conference, .paper-info .conference a{color:#BB2222;font-weight:600}
+
+#wave-canvas{display:block;margin:-80px 0 0;width:100%;height:150px}
+
+#content{padding-top:0px;text-align:left}
+#content-container{margin:0 auto;padding: 0 2em;max-width:1600px;color:#333333}
+
+#content-container .header{background:#eee;padding:15px 30px 5px;border-bottom:3px solid #dddddd}
+#content-container .header .indicator{color:#777777;margin-right:12px}
+
+#content-container .content{background:#ffffff;padding:15px 5px 15px 30px}
+#content-container .content .caption{color:#666666}
+#content-container .content .bib{color:#666666;font-size:14px;}
+#content-container .content .bib pre{margin:0;padding:0;}
+
+#footer{padding:2em 0 0.5em;margin:30px 0 0;background:#ffffff;opacity:0.95;font-size:14px;line-height:12px;text-align:center}
+.highlight, .highlight a{color:#BB2222;font-weight:600}
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <div id="header-container" class="container">
+          <div class="row">
+            <div class="col-md-12 col-xl-12 col-info">
+                <h1 id="title">Neurally Guided Structure Inference</h1>
+                <div class="paper-info">
+                    <h3 class="title">Neurally Guided Structure Inference</h3>
+                    <p class="authors">
+                    <a href="http://sidilu.cn">Sidi Lu</a>*,
+                    <a href="http://jiayuanm.com">Jiayuan Mao</a>*,
+                    <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
+                    <a href="http://jiajunwu.com">Jiajun Wu</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="http://icml.cc">ICML 2019</a></li>
+                        <li><a href="http://ngsi.csail.mit.edu/data/papers/2019ICML-NGSI.pdf">Paper</a> /</li>
+                        <li><a href="http://ngsi.csail.mit.edu/data/bibtex/2019ICML-NGSI.bib">BibTeX</a></li>
+                        <li class="authors">(* indicates equal contributions)</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+
+        </div>
+        <canvas id="wave-canvas"></canvas>
+    </div>
+    <div id="content">
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Overview</h4></div>
+            <div class="content">
+            <p>
+            <center>
+            <img width="60%" src="data/img/framework.png"/>
+            </center>
+            </p>
+            <p>
+                Most structure inference methods either rely on exhaustive search or are purely data-driven.
+                Exhaustive search robustly infers the structure of arbitrarily complex data, but it is slow.
+                Data-driven methods allow efficient inference, but do not generalize when test data have more complex structures than training data.
+                In this paper, we propose a hybrid inference algorithm, the Neurally-Guided Structure Inference (NG-SI), keeping the advantages of both search-based and data-driven methods.
+                The key idea of NG-SI is to use a neural network to guide the hierarchical, layer-wise search over the compositional space of structures.
+                We evaluate our algorithm on two representative structure inference tasks: probabilistic matrix decomposition and symbolic program parsing.
+                It outperforms data-driven and search-based alternatives on both tasks.
+            </p>
+            <p>
+            </div>
+        </div>
+
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Code</h4></div>
+            <div class="content"><p>The Neurally-Guided Structure Inference for Matrix Decomposition <a href="https://github.com/desire2020/NGSI">[TensorFlow (Official)]</a>.</p></div>
+        </div>
+
+        <div id="content-container" class="container">
+            <div class="header"><h4><span class="indicator">=</span>Related Publications</h4></div>
+            <div class="content">
+                <div class="paper-info paper-info-margin">
+                    <h3 class="title">Exploiting compositionality to explore a large space of model structures</h3>
+                    <p class="authors">
+                        <a href="http://www.cs.toronto.edu/~rgrosse/">Roger B. Grosse</a>,
+                        <a href="https://www.cs.cmu.edu/~rsalakhu/">Ruslan Salakhutdinov</a>,
+                        <a href="https://billf.mit.edu/">William T. Freeman</a>, and
+                        <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="https://http://www.auai.org/uai2012/">UAI 2012</a> <span class="highlight">(Best Student Paper)</span></li>
+                        <li><a href="http://www.cs.toronto.edu/~rgrosse/uai2012-matrix.pdf">Paper</a> /</li>
+                        <li><a href="https://github.com/rgrosse/compositional_structure_search">Code</a> /</li>
+                        <li><a href="https://metacademy.org/roadmaps/rgrosse/uai2012">Background</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>The Paper Authors © 2019</p>
+    </div>
+</div>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
+<script type="text/javascript" src="static/js/wave.js"></script>
+<script type="text/javascript">
+$(function() {
+    targetColor = $("#title").css("color")
+    animatedLink = function(speed) {
+        $(".link-li").hover(function() {
+            $(this).find('.icon').animate({
+                color: targetColor,
+                borderColor: targetColor
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#798350'
+            })
+        }, function() {
+            $(this).find('.icon').animate({
+                borderColor: '#cccccc',
+                color: '#cccccc'
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#cccccc'
+            })
+        })
+    };
+    // fullBg();
+    animatedLink(400)
+});
+</script>
+</body>
+</html>
