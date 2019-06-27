@@ -25,7 +25,10 @@ a:hover{color:#59301b}
 #main{z-index:2;margin:0 auto;position:absolute;top:5%;width:100%;min-width:240px;text-align:center;}
 
 /* Avatar, Name, etc. */
-#main-content{background:rgba(238,238,238,0.95);margin:0 0 0 5%;width:55%;min-width:850px;padding:0;text-align:center;cursor:default;text-align:center;}
+#main-content{background:rgba(238,238,238,0.95);margin:0 0 0 5%;width:55%;min-width:800px;max-width:900px;padding:0;text-align:center;cursor:default;text-align:center;}
+@media(max-width:575.98px){
+    #main-content{min-width:400px;}
+}
 #main-content-container{margin:0 auto;padding:5px 2em 0;max-width:1080px;}
 #main-content-container .col-avatar{text-align:center}
 #main-content-container .col-avatar .avatar{z-index:100;width:200px;height:200px;margin-top:-125px;border-radius:100%;box-shadow:0 0 0 0.3em #fff;opacity:1;}
