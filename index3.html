@@ -24,26 +24,32 @@ a:hover{color:#59301b}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
 #main{z-index:2;margin:0 auto;position:absolute;top:5%;width:100%;min-width:240px;text-align:center;}
 
-/* Avatar, Name, etc. */
-#main-content{background:rgba(238,238,238,0.95);margin:0 0 0 5%;width:55%;min-width:800px;max-width:900px;padding:0;text-align:center;cursor:default;text-align:center;}
-@media(max-width:575.98px){
-    #main-content{min-width:320px;}
+#main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}
+#main-content{margin-left:6.5104167%;width:86.9791667%;}
+@media (min-width: 768px) {
+    #main-content{width:66%;min-width:668px;margin-left:50px}
 }
-#main-content-container{margin:0 auto;padding:5px 2em 0;max-width:1080px;}
+@media (min-width: 1200px) {
+    #main-content{width:66%;max-width:900px;margin-left:50px}
+}
+/* Avatar, Name, etc. */
+#main-content-container{margin:0 auto;padding:15px 0 15px 2em;max-width:1080px;}
 #main-content-container .col-avatar{text-align:center}
-#main-content-container .col-avatar .avatar{z-index:100;width:200px;height:200px;margin-top:-125px;border-radius:100%;box-shadow:0 0 0 0.3em #fff;opacity:1;}
-#main-content-container .col-info{text-align:center}
-#main-content-container .col-info .textbox-info{display:inline-block;margin:0 auto;text-align:left}
-#main-content-container .col-info .name{margin:20px 0 0;color:#5a301b;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
-#main-content-container .col-info .email{color:#666; font-size:14px}
-#main-content-container .col-link{text-align:center}
-#main-content-container .col-link ul {margin:20px auto auto;padding:0;list-style:none;text-align:center}
-#main-content-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
-#main-content-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
-#main-content-container .col-link li a:focus,
-#main-content-container .col-link li a:hover{text-decoration:none;cursor:hand}
-#main-content-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
-#main-content-container .col-link li a.padding{padding:0px 0px;font-size:22px}
+#main-content-container .col-avatar .avatar{z-index:100;width:150px;height:150px;margin-top:0px;border-radius:100%;box-shadow:0 0 0 0.3em #fff;opacity:1;}
+
+#main-content-container .col-info{height:100%;align-items:center;display:-webkit-flex;height:150px}
+#main-info-container .col-name{text-align:center}
+#main-info-container .col-name .textbox-info{display:inline-block;margin:0 auto;text-align:left}
+#main-info-container .col-name .name{margin:0;color:#5a301b;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
+#main-info-container .col-name .email{color:#666; font-size:14px}
+#main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
+#main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
+#main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
+#main-info-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
+#main-info-container .col-link li a:focus,
+#main-info-container .col-link li a:hover{text-decoration:none;cursor:hand}
+#main-info-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
+#main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
 
 /* Other */
 #main-more-container{background:#ffffff;width:100%;padding:0 30px}
@@ -101,18 +107,27 @@ a:hover{color:#59301b}
     <div id="main-content">
         <div id="main-content-container" class="container">
           <div class="row">
-            <div class="col-md-12 col-lg-6 col-info">
-                <div class="textbox-info">
-                    <h1 class="name"><span>Jiayuan Mao</span> <span>(茅佳源)</span></h1>
-                    <p class="email">Email: maojiayuan [at] gmail [dot] com</p>
-                </div>
+            <div class="col-sm-12 col-md-3 col-avatar">
+                <img src="static/img/avatar4.jpg" class="avatar" class="" />
             </div>
-            <div class="col-md-12 col-lg-6 col-link">
-                <ul class="clear">
-                    <li><p><a class="fa fa-wordpress icon" aria-hidden="true" href="http://blog.jiayuanm.com"></a></p></li>
-                    <li><p><a class="fa fa-github icon border" aria-hidden="true" href="https://github.com/vacancy"></a></p></li>
-                    <li><p><a class="fa fa-instagram icon" aria-hidden="true" href="https://www.instagram.com/maojiayuan"></a></p></li>
-                </ul>
+            <div class="col-sm-12 col-md-9 col-info">
+                <div id="main-info-container" class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xl-7 col-name">
+                            <div class="textbox-info">
+                                <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
+                                <p class="email">Email: maojiayuan [at] gmail [dot] com</p>
+                            </div>
+                        </div>
+                        <div class="col col-link">
+                            <ul class="clear">
+                                <li><p><a class="fa fa-wordpress icon" aria-hidden="true" href="http://blog.jiayuanm.com"></a></p></li>
+                                <li><p><a class="fa fa-github icon border" aria-hidden="true" href="https://github.com/vacancy"></a></p></li>
+                                <li><p><a class="fa fa-instagram icon" aria-hidden="true" href="https://www.instagram.com/maojiayuan"></a></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -125,9 +140,9 @@ a:hover{color:#59301b}
 
             <h5 class="subtitle">Research Highlights</h5>
             <ul>
-                <li><b>Concept learning</b>: visual concept learning, neuro-symbolic reasoning, neural inductive logic, structure inference.</li>
-                <li><b>Skill learning</b>: transfer learning in DRL.</li>
-                <li><b>Language development and evolution.</b></li>
+                <li><b>Concept Learning</b>: visual concept learning and skill learning.</li>
+                <li><b>Neuro-Symbolic Reasoning</b>: neuro-symbolic scene representations, neural logic induction, structure inference.</li>
+                <li><b>Language Development & Evolution.</b></li>
             </ul>
         </div>
 
@@ -141,7 +156,7 @@ a:hover{color:#59301b}
             </h5>
             <p class="subtitle-aux"><span class="bold">Topics:</span>
                 <a href="#topic-concept-learning" onClick="return publicationByTopicSpecific(this)" data-topic="concept-learning">Concept Learning</a> /
-                <a href="#topic-skill-learning" onClick="return publicationByTopicSpecific(this)" data-topic="skill-learning">Skill Learning</a> /
+                <a href="#topic-concept-learning" onClick="return publicationByTopicSpecific(this)" data-topic="neuro-symbolic">Neuro-Symbolic Reasoning</a> /
                 <a href="#topic-language-development" onClick="return publicationByTopicSpecific(this)" data-topic="language-development">Language Development & Evolution</a> /
                 <a href="#topic-vision" onClick="return publicationByTopicSpecific(this)" data-topic="vision">Vision</a> /
                 <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="nlp">NLP</a>
@@ -149,7 +164,7 @@ a:hover{color:#59301b}
             </p>
 
             <div id="main-pub-card-container" class="hide">
-                <div class="pub-card" data-topic="language-development" data-year="2019" data-selected="false">
+                <div class="pub-card" data-topic="language-development" data-year="2019" data-selected="true">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
                             <img src="data/projects/vgnsl.png" width="100%" />
@@ -173,7 +188,7 @@ a:hover{color:#59301b}
                         </div>
                     </div>
                 </div>
-                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="false">
+                <div class="pub-card" data-topic="neuro-symbolic" data-year="2019" data-selected="false">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
                             <img src="data/projects/ngsi.png" width="100%" />
@@ -256,7 +271,7 @@ a:hover{color:#59301b}
                         </div>
                     </div>
                 </div>
-                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="true">
+                <div class="pub-card" data-topic="neuro-symbolic" data-year="2019" data-selected="true">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
                             <img src="data/projects/nlm.png" width="100%" />
@@ -357,7 +372,7 @@ a:hover{color:#59301b}
                         </div>
                     </div>
                 </div>
-                <div class="pub-card" data-topic="skill-learning" data-year="2018" data-selected="true">
+                <div class="pub-card" data-topic="concept-learning" data-year="2018" data-selected="true">
                     <div class="row">
                         <div class="col-l col-md-12 col-lg-3">
                             <img src="data/projects/ua.png" width="100%" />
@@ -414,7 +429,8 @@ a:hover{color:#59301b}
                 <div class="copyright">
                     &copy; 2015-2019<br />
                     <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
-                    Background photo: 798 Art Zone, Beijing, China. 2019.
+                    Background photo: 798 Art Zone, Beijing, China. 2019.<br />
+                    Avatar photo: MIT, Cambridge, USA. 2018.
                 </div>
             </div>
         </div>
