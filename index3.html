@@ -33,7 +33,10 @@ a:hover{color:#59301b}
     #main-content{width:66%;max-width:900px;margin-left:50px}
 }
 /* Avatar, Name, etc. */
-#main-content-container{margin:0 auto;padding:15px 0 15px 2em;max-width:1080px;}
+#main-content-container{margin:0 auto;padding:15px 2em 15px 2em;max-width:1080px;}
+@media (min-width: 768px) {
+#main-content-container{padding:15px 0 15px 2em;}
+}
 #main-content-container .col-avatar{text-align:center}
 #main-content-container .col-avatar .avatar{z-index:100;width:150px;height:150px;margin-top:0px;border-radius:100%;box-shadow:0 0 0 0.3em #fff;opacity:1;}
 
