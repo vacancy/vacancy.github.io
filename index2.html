@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jiayuan Mao</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Jiayuan Mao is an undergraduate student at Tsinghua University.">
+    <meta name="keywords" content="Jiayuan Mao,Computer Vision,Natural Language Processing,Machine Learning,Cognitive Science">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+body{margin:0;padding:0;background-color:#eee;}
+a{color:#dc906a}
+a:hover{color:#59301b}
+#background{position:fixed;top:0;overflow:hidden;height:0}
+#wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
+#main{z-index:2;margin:0 auto;position:absolute;top:5%;width:100%;min-width:240px;text-align:center;}
+
+#main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}
+#main-content{margin-left:6.5104167%;width:86.9791667%;}
+@media (min-width: 768px) {
+    #main-content{width:66%;min-width:668px;margin-left:50px}
+}
+@media (min-width: 1200px) {
+    #main-content{width:66%;max-width:900px;margin-left:50px}
+}
+/* Avatar, Name, etc. */
+#main-content-container{margin:0 auto;padding:15px 0em 15px 0em;max-width:1080px;}
+@media (min-width: 768px) {
+    #main-content-container{padding:15px 0 15px 2em;}
+}
+#main-content-container .col-avatar{text-align:center}
+#main-content-container .col-avatar .avatar{z-index:100;width:150px;height:150px;margin-top:0px;border-radius:100%;box-shadow:0 0 0 0.3em #fff;opacity:1;}
+
+#main-content-container .col-info{height:100%;align-items:center;display:-webkit-flex;height:150px}
+#main-info-container{padding-top:15px}
+#main-info-container .col-name{text-align:center}
+#main-info-container .col-name .textbox-info{display:inline-block;margin:0 auto;text-align:left}
+#main-info-container .col-name .name{margin:0;color:#5a301b;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
+#main-info-container .col-name .email{color:#666; font-size:14px}
+#main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
+#main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
+#main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
+#main-info-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
+#main-info-container .col-link li a:focus,
+#main-info-container .col-link li a:hover{text-decoration:none;cursor:hand}
+#main-info-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
+#main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
+
+/* Other */
+#main-more-container{background:#ffffff;width:100%;padding:0 30px}
+
+#main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
+#main-bio-container .subtitle{margin-top:30px;color:#5a301b}
+
+#main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
+#main-pub-container .subtitle{color:#5a301b;}
+#main-pub-container .subtitle a {font-weight:400;font-size:18px}
+#main-pub-container .subtitle a.activated {color:#333333}
+#main-pub-container .subtitle a.activated:focus,
+#main-pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
+
+#main-pub-container .subtitle-aux {font-size:1rem}
+#main-pub-container .subtitle-aux a.activated {color:#333333}
+#main-pub-container .subtitle-aux a.activated:focus,
+#main-pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
+
+#main-pub-card-container{}
+#main-pub-card-container>h5{margin-bottom: 20px}
+#main-pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
+#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
+#main-pub-card-container .pub-card .col-r{padding-top:10px}
+#main-pub-card-container .pub-card img{width:100%;margin:0 auto}
+#main-pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
+#main-pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
+#main-pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
+#main-pub-card-container .pub-card .authors a{color:#666666}
+#main-pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
+#main-pub-card-container .pub-card .conference{color:#333333;font-weight:600}
+#main-pub-card-container .row{margin:0}
+#main-pub-card-container .col-l,
+#main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
+
+#footer{padding:1.5em 0 1.5em;min-width:240px;background:#f4f4f4;opacity:0.95;font-size:14px;line-height:12px;text-align:left}
+#footer .container{max-width:540px;padding:0 45px}
+#footer .row{align-items:center}
+#footer .stat{width:90px;overflow:hidden;margin:0 auto;padding:0 15px;}
+#footer .copyright{flex-grow:1;margin:5px auto 5px;text-align:left;display:block;font-size:14px;line-height:1.4}
+
+.bold{font-weight:600}
+.highlight{color:#BB2222;font-weight:600}
+.hide{display:none}
+    </style>
+</head>
+
+<body>
+
+<img src="static/img/798_ext.jpg" id="background" class="" />
+
+<div id="main">
+    <!--canvas id="wave-canvas"></canvas-->
+
+    <div id="main-content">
+        <div id="main-content-container" class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-3 col-avatar">
+                <img src="static/img/avatar4.jpg" class="avatar" class="" />
+            </div>
+            <div class="col-sm-12 col-md-9 col-info">
+                <div id="main-info-container" class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xl-7 col-name">
+                            <div class="textbox-info">
+                                <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
+                                <p class="email">Email: maojiayuan [at] gmail [dot] com</p>
+                            </div>
+                        </div>
+                        <div class="col col-link">
+                            <ul class="clear">
+                                <li><p><a class="fa fa-wordpress icon" aria-hidden="true" href="http://blog.jiayuanm.com"></a></p></li>
+                                <li><p><a class="fa fa-github icon border" aria-hidden="true" href="https://github.com/vacancy"></a></p></li>
+                                <li><p><a class="fa fa-instagram icon" aria-hidden="true" href="https://www.instagram.com/maojiayuan"></a></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-more-container">
+        <div id="main-bio-container">
+            <p>
+            I am an undergraduate student of the <a href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University, majoring in computer science.
+            </p>
+
+            <h5 class="subtitle">Research Highlights</h5>
+            <ul>
+                <li><b>Concept Learning</b>: visual concept learning and skill learning.</li>
+                <li><b>Neuro-Symbolic Reasoning</b>: neuro-symbolic scene representations, neural logic induction, structure inference.</li>
+                <li><b>Language Development & Evolution.</b></li>
+            </ul>
+        </div>
+        <div id="main-pub-container">
+            <h5 class="subtitle">Publications
+            (
+                <a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
+                <a id="publication-by-date" href="javascript:;", onClick="publicationByDate();">show all by date</a> /
+                <a id="publication-by-topic" href="javascript:;", onClick="publicationByTopic();">show all by topic</a>
+            )
+            </h5>
+            <p class="subtitle-aux"><span class="bold">Topics:</span>
+                <a href="#topic-concept-learning" onClick="return publicationByTopicSpecific(this)" data-topic="concept-learning">Concept Learning</a> /
+                <a href="#topic-skill-learning" onClick="return publicationByTopicSpecific(this)" data-topic="skill-learning">Skill Learning</a> /
+                <a href="#topic-language-development" onClick="return publicationByTopicSpecific(this)" data-topic="language-development">Language Development & Evolution</a> /
+                <a href="#topic-vision" onClick="return publicationByTopicSpecific(this)" data-topic="vision">Vision</a> /
+                <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="nlp">NLP</a>
+                (* indicates equal contribution)
+            </p>
+
+            <div id="main-pub-card-container" class="hide">
+                <div class="pub-card" data-topic="language-development" data-year="2019" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/vgnsl.png" width="100%" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Visually Grounded Neural Syntax Acquisition</h5>
+                                <h6 class="authors">
+                                    <a href="https://ttic.uchicago.edu/~freda/">Haoyue Shi</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="https://ttic.uchicago.edu/~kgimpel/">Kevin Gimpel</a>,
+                                    <a href="https://ttic.uchicago.edu/~klivescu/">Karen Livescu</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="http://www.acl2019.org" class="conference">ACL 2019</a>
+                                    <span class="highlight">(Oral)</span>
+                                    <a href="https://arxiv.org/abs/1906.02890">Paper</a> /
+                                    <a href="https://ttic.uchicago.edu/~freda/project/vgnsl/">Project Page</a> /
+                                    <a href="https://github.com/ExplorerFreda/VGNSL">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/ngsi.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Neurally-Guided Structure Inference</h5>
+                                <h6 class="authors">
+                                    <a href="http://sidilu.cn">Sidi Lu</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>,
+                                    <a href="http://jiajunwu.com">Jiajun Wu</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="https://icml.cc/Conferences/2019" class="conference">ICML 2019</a>
+                                    <a href="http://proceedings.mlr.press/v97/lu19b.html">Paper</a> /
+                                    <a href="http://ngsi.csail.mit.edu">Project Page</a> /
+                                    <a href="https://github.com/desire2020/NGSI">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/uvse.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Unified Visual-Semantic Embeddings:<br />Bridging Vision and Language with Structured Meaning Representations</h5>
+                                <h6 class="authors">
+                                    Hao Wu*,
+                                    <u>Jiayuan Mao</u>*,
+                                    Yufeng Zhang,
+                                    <a href="http://homepage.fudan.edu.cn/wwsun/">Weiwei Sun</a>,
+                                    <a href="https://yuningjiang.github.io">Yuning Jiang</a>,
+                                    <a href="http://www.cs.cmu.edu/~./leili/">Lei Li</a>,
+                                    Wei-Ying Ma
+                                </h6>
+                                <p class="info">
+                                    <a href="http://cvpr2019.thecvf.com/" class="conference">CVPR 2019</a>
+                                    <span class="highlight">(Oral)</span>
+                                    <a href="https://arxiv.org/abs/1904.05521v1">Paper</a>
+                                    <!--
+                                    <br />
+                                    <span class="conference">NAACL 2019 SpLU-RoboNLP</span>
+                                    <a href="https://arxiv.org/abs/1904.05521v2">[ArXiv]</a>
+                                    -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/nscl.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">The Neuro-Symbolic Concept Learner:<br />Interpreting Scenes, Words, and Sentences From Natural Supervision</h5>
+                                <h6 class="authors">
+                                    <u>Jiayuan Mao</u>,
+                                    <a href="http://people.csail.mit.edu/ganchuang/">Chuang Gan</a>,
+                                    <a href="https://sites.google.com/site/pushmeet">Pushmeet Kohli</a>,
+                                    <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>,
+                                    <a href="http://jiajunwu.com">Jiajun Wu</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="https://iclr.cc/Conferences/2019" class="conference">ICLR 2019</a>
+                                    <span class="highlight">(Oral)</span>
+                                    <a href="https://arxiv.org/abs/1904.12584">Paper</a> /
+                                    <a href="http://nscl.csail.mit.edu">Project Page</a> /
+                                    <a href="https://github.com/vacancy/NSCL-PyTorch-Release">Code</a> /
+                                    <a href="http://news.mit.edu/2019/teaching-machines-to-reason-about-what-they-see-0402">MIT News</a> /
+                                    <a href="https://www.technologyreview.com/s/613270/two-rival-ai-approaches-combine-to-let-machines-learn-about-the-world-like-a-child/">MIT Technology Review</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="concept-learning" data-year="2019" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/nlm.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Neural Logic Machines</h5>
+                                <h6 class="authors">
+                                    Honghua Dong*,
+                                    <u>Jiayuan Mao</u>*,
+                                    Tian Lin,
+                                    <a href="https://chongw.github.io">Chong Wang</a>,
+                                    <a href="https://lihongli.github.io">Lihong Li</a>,
+                                    <a href="https://dennyzhou.github.io">Dengyong Zhou</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="https://iclr.cc/Conferences/2019" class="conference">ICLR 2019</a>
+                                    <a href="https://arxiv.org/abs/1904.11694">Paper</a> /
+                                    <a href="https://sites.google.com/view/neural-logic-machines">Project Page</a> /
+                                    <a href="https://github.com/google/neural-logic-machines">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="nlp" data-year="2018" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/np2mt.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Neural Phrase-to-Phrase Machine Translation</h5>
+                                <h6 class="authors">
+                                    Jiangtao Feng,
+                                    <a href="http://www.cs.cmu.edu/~lingpenk/">Lingpeng Kong</a>,
+                                    <a href="https://posenhuang.github.io">Po-Sen Huang</a>,
+                                    <a href="https://chongw.github.io">Chong Wang</a>,
+                                    Da Huang,
+                                    <u>Jiayuan Mao</u>,
+                                    Kan Qiao,
+                                    <a href="https://dennyzhou.github.io">Dengyong Zhou</a>
+                                </h6>
+                                <p class="info">
+                                    <span class="conference">ArXiv Preprint</span>
+                                    <a href="https://arxiv.org/abs/1811.02172">Paper</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="vision" data-year="2018" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/iounet.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Acquisition of Localization Confidence for Accurate Object Detection</h5>
+                                <h6 class="authors">
+                                    Borui Jiang*,
+                                    Ruixuan Luo*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="http://tetexiao.com">Tete Xiao</a>,
+                                    <a href="https://yuningjiang.github.io">Yuning Jiang</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="https://eccv2018.org" class="conference">ECCV 2018</a>
+                                    <span class="highlight">(Oral)</span>
+                                    <a href="https://arxiv.org/abs/1807.11590">Paper</a> /
+                                    <a href="https://github.com/vacancy/PreciseRoIPooling">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="concept-learning" data-year="2018" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/vsec.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Learning Visually-Grounded Sementics from Contrastive Adversarial Samples</h5>
+                                <h6 class="authors">
+                                    <a href="https://ttic.uchicago.edu/~freda/">Haoyue Shi</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="http://tetexiao.com">Tete Xiao</a>*,
+                                    <a href="https://yuningjiang.github.io">Yuning Jiang</a>,
+                                    <a href="http://www.jiansun.org">Jian Sun</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="http://coling2018.org" class="conference">COLING 2018</a>
+                                    <a href="https://arxiv.org/abs/1806.10348">Paper</a> /
+                                    <a href="https://github.com/ExplorerFreda/VSE-C">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="skill-learning" data-year="2018" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/ua.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Universal Agent for Disentangling Environments and Tasks</h5>
+                                <h6 class="authors">
+                                    <u>Jiayuan Mao</u>,
+                                    Honghua Dong,
+                                    <a href="http://www-bcf.usc.edu/~limjj/">Joseph J. Lim</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="https://iclr.cc/Conferences/2018" class="conference">ICLR 2018</a>
+                                    <a href="https://openreview.net/forum?id=B1mvVm-C-">Paper</a> /
+                                    <a href="http://jiayuanm.com/projects/universal-agent">Project Page</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="vision" data-year="2017" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-md-12 col-lg-3">
+                            <img src="data/projects/wchpd.png" width="100%" />
+                        </div>
+                        <div class="col-r col-md-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">What Can Help Pedestrian Detection?</h5>
+                                <h6 class="authors">
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="http://tetexiao.com">Tete Xiao</a>*,
+                                    <a href="https://yuningjiang.github.io">Yuning Jiang</a>,
+                                    Zhimin Cao
+                                </h6>
+                                <p class="info">
+                                    <a href="http://cvpr2017.thecvf.com" class="conference">CVPR 2017</a>
+                                    <a href="https://arxiv.org/abs/1705.02757">Paper</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="stat">
+                    <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s"></script>
+                    <!--script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s&cl=ffffff&w=a"></script-->
+                </div>
+                <div class="copyright">
+                    &copy; 2015-2019<br />
+                    <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
+                    Background photo: 798 Art Zone, Beijing, China. 2019.<br />
+                    Avatar photo: MIT, Cambridge, USA. 2018.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
+<script type="text/javascript" src="static/js/wave.js"></script>
+<script type="text/javascript">
+
+$.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+var allPublications = null;
+
+function publicationBySelected() {
+    var a = $("#publication-by-selected")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var pubId = 0; pubId < allPublications.length; pubId++) {
+        var pub = $(allPublications[pubId]);
+        if (pub.data("selected") == true) {
+            $("#main-pub-card-container").append(pub);
+        }
+    }
+}
+
+function publicationByDate() {
+    var a = $("#publication-by-date")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var pubId = 0; pubId < allPublications.length; pubId++) {
+        if (pubId == 0 || $(allPublications[pubId-1]).data("year") != $(allPublications[pubId]).data("year")) {
+            var year = $(allPublications[pubId]).data("year");
+            $("#main-pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
+        }
+        $("#main-pub-card-container").append(allPublications[pubId]);
+    }
+}
+
+function publicationByTopicInner() {
+    var a = $("#publication-by-topic")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var topicId in allTopics) {
+        var topic = allTopics[topicId].name;
+        var topicTitle = allTopics[topicId].title;
+        // var topicTitle = topic.split("-").map(function (a) { return a[0].toUpperCase() + a.substr(1).toLowerCase(); }).join(" ");
+        $("#main-pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
+        for (var pubId = 0; pubId < allPublications.length; pubId++) {
+            var pub = $(allPublications[pubId]);
+            if (pub.data("topic").indexOf(topic) != -1) {
+                $("#main-pub-card-container").append(pub);
+            }
+        }
+    }
+}
+
+function publicationByTopicSpecificInner(a) {
+    if ($(a).hasClass("activated")) {
+        return false;
+    }
+
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    $(a).addClass("activated");
+}
+
+function publicationByTopic() {
+    publicationByTopicInner();
+    publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
+    return true;
+}
+
+function publicationByTopicSpecific(a) {
+    publicationByTopicInner();
+    publicationByTopicSpecificInner(a);
+
+    var hash = a.hash;
+    $(hash).prop('id', hash.substr(1) + '-noscroll');
+    window.location.hash = hash;
+    $(hash + '-noscroll').prop('id', hash.substr(1));
+
+    if (!$(hash).isInViewport()) {
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 1000, function(){
+        });
+    }
+
+    return false;
+}
+
+$(function() {
+    getRealSize = function(bgImg) {
+        var img = new Image();
+        img.src = bgImg.attr("src");
+        var width = img.width,
+            height = img.height;
+        return {
+            width: width,
+            height: height
+        }
+    };
+
+    getRealWindowSize = function() {
+        var winWidth = null,
+            winHeight = null;
+        if (window.innerWidth) winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth)) winWidth = document.body.clientWidth;
+        if (window.innerHeight) winHeight = window.innerHeight;
+        else if ((document.body) && (document.body.clientHeight)) winHeight = document.body.clientHeight;
+        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+            winHeight = document.documentElement.clientHeight;
+            winWidth = document.documentElement.clientWidth
+        }
+        return {
+            width: winWidth,
+            height: winHeight
+        }
+    };
+
+    fullBg = function() {
+        var bgImg = $("#background");
+        var mainContainer = $("#main");
+        var firstFire = null;
+
+        function resizeImg() {
+            var realSize = getRealSize(bgImg);
+            var imgWidth = realSize.width;
+            var imgHeight = realSize.height;
+
+            if (imgWidth == 0 || imgHeight == 0) {
+                setTimeout(function() {
+                    resizeImg();
+                }, 200);
+            }
+
+            console.log(realSize);
+            var realWinSize = getRealWindowSize();
+            var winWidth = realWinSize.width;
+            var winHeight = realWinSize.height;
+            var widthRatio = winWidth / imgWidth;
+            var heightRatio = winHeight / imgHeight;
+            console.log(realWinSize);
+            if (widthRatio > heightRatio) {
+                bgImg.width(imgWidth * widthRatio + 'px').height(imgHeight * widthRatio + 'px').css({'top':
+                    -(imgHeight * widthRatio - winHeight) / 10 * 3 + 'px', 'left': '0'})
+            } else {
+                bgImg.width(imgWidth * heightRatio + 'px').height(imgHeight * heightRatio + 'px').css({'left':
+                    -(imgWidth * heightRatio - winWidth) / 10 * 7 + 'px', 'top': '0'})
+            }
+            // mainContainer.css({
+            //     width: winWidth,
+            //     height: winHeight
+            // });
+        }
+
+        resizeImg();
+        window.onresize = function() {
+            if (firstFire === null) {
+                firstFire = setTimeout(function() {
+                    resizeImg();
+                    firstFire = null
+                }, 100)
+            }
+        }
+    };
+
+    targetColor = $("#main-content-container .col-info .name").css("color");
+    animatedLink = function(speed) {
+        $("#main-content-container .col-link li").hover(function() {
+            $(this).find('.icon').animate({
+                color: targetColor,
+                borderColor: targetColor
+            }, speed);
+            $(this).find('.caption').animate({
+                color: targetColor
+            })
+        }, function() {
+            $(this).find('.icon').animate({
+                borderColor: '#cccccc',
+                color: '#cccccc'
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#cccccc'
+            })
+        })
+    };
+
+    fullBg();
+    animatedLink(400);
+
+    allPublications = $("#main-pub-card-container .pub-card");
+    allTopicsLink = $("#main-pub-container .subtitle-aux a");
+    allTopics = [];
+    for (var topicId = 0; topicId < allTopicsLink.length; topicId++) {
+        allTopics.push({name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html()});
+    }
+
+    $("#publication-by-selected").click();
+    // $("#publication-by-date").click();
+    $("#main-pub-card-container").removeClass("hide");
+});
+</script>
+</body>
+</html>
