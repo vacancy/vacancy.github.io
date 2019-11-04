@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Neuro-Symbolic Concept Learner</title>
-    <meta name="description" content="The Neuro-Symbolic Concept Learner">
+    <title>Visual Concept Metaconcept Learning</title>
+    <meta name="description" content="Visual Concept Metaconcept Learning">
     <meta name="keywords" content="MIT,Vision,Scene,Language,Learning,Reasoning,Computer Science">
 
     <meta charset="utf-8">
@@ -37,6 +37,7 @@ body{margin:0;padding:0;background-color:#f4f4f4}
 .paper-info .tag{margin:auto auto;padding:0;list-style:none;text-align:left}
 .paper-info .tag li{display:inline-block;margin:auto;padding:0 3px 0 0;line-height:10px}
 .paper-info .conference, .paper-info .conference a{color:#BB2222;font-weight:600}
+.paper-info .note{display:block;color:#666666;text-decoration:none;font-size:14px}
 
 #wave-canvas{display:block;margin:-80px 0 0;width:100%;height:150px}
 
@@ -61,23 +62,21 @@ body{margin:0;padding:0;background-color:#f4f4f4}
         <div id="header-container" class="container">
           <div class="row">
             <div class="col-md-12 col-xl-12 col-info">
-                <h1 id="title">The Neuro-Symbolic Concept Learner</h1>
+                <h1 id="title">Visual Concept Metaconcept Learning</h1>
                 <div class="paper-info">
-                    <h3 class="title">The Neuro-Symbolic Concept Learner: Interpreting Scenes, Words, and Sentences From Natural Supervision</h3>
+                    <h3 class="title">Visual Concept Metaconcept Learning</h3>
                     <p class="authors">
-                    <a href="http://jiayuanm.com">Jiayuan Mao</a>,
-                    <a href="http://people.csail.mit.edu/ganchuang">Chuang Gan</a>,
-                    <a href="https://sites.google.com/site/pushmeet">Pushmeet Kohli</a>,
-                    <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
-                    <a href="http://jiajunwu.com">Jiajun Wu</a>
+                        Chi Han*,
+                        <a href="http://jiayuanm.com/">Jiayuan Mao</a>*,
+                        <a href="http://people.csail.mit.edu/ganchuang/">Chuang Gan</a>,
+                        <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
+                        <a href="http://jiajunwu.com/">Jiajun Wu</a>
                     </p>
+                    <span class="note">(*: First two authors contributed equally.)</span>
                     <ul class="tag">
-                        <li class="conference"><a href="http://iclr.cc">ICLR 2019</a> <span class="highlight">(Oral)</span></li>
-                        <li><a href="http://nscl.csail.mit.edu/data/papers/2019ICLR-NSCL.pdf">Paper</a> /</li>
-                        <li style="margin-right:40px"><a href="http://nscl.csail.mit.edu/data/bibtex/2019ICLR-NSCL.bib">BibTeX</a></li>
-                        <li style="font-weight:600">Media Coverage:</li>
-                        <li><a href="http://news.mit.edu/2019/teaching-machines-to-reason-about-what-they-see-0402">MIT News</a> /</li>
-                        <li><a href="https://www.technologyreview.com/s/613270/two-rival-ai-approaches-combine-to-let-machines-learn-about-the-world-like-a-child/">MIT Technology Review</a></li>
+                        <li class="conference"><a href="https://nips.cc/Conferences/2019">NeurIPS 2019</a></li>
+                        <li><a href="http://vcml.csail.mit.edu/data/papers/2019NeurIPS-VCML.pdf">Paper</a> /</li>
+                        <li style="margin-right:40px"><a href="http://vcml.csail.mit.edu/data/bibtex/2019NeurIPS-VCML.bib">BibTeX</a></li>
                     </ul>
                 </div>
             </div>
@@ -90,75 +89,56 @@ body{margin:0;padding:0;background-color:#f4f4f4}
         <div id="content-container" class="container">
             <div class="header"><h4><span class="indicator">=</span>Overview</h4></div>
             <div class="content">
-                        <p>
+
+            <p>
+            <center>
+            <img width="100%" src="data/img/teaser.png"/>
+            </center>
+            </p>
+            <p class="caption">
+            Figure 1: The <i>visual concept-metaconcept learner</i> learns concepts and metaconcepts from images and two types of questions. The learned knowledge helps visual concept learning (generalizing to unseen visual concept compositions, or to concepts with limited visual data) and metaconcept generalization (generalizing to relations between unseen pairs of concepts..
+            </p>
+
+            <p>
+            Humans reason with concepts and metaconcepts: we recognize <i>red</i> and <i>green</i> from visual input; we also understand that they <i>describe the same property of objects</i> (<i>i.e.</i>, the color). In this paper, we propose the visual concept-metaconcept learner (VCML) for joint learning of concepts and metaconcepts from images and associated question-answer pairs. The key is to exploit the bidirectional connection between visual concepts and metaconcepts. Visual representations provide grounding cues for predicting relations between unseen pairs of concepts. Knowing that red and green <i>describe the same property of objects</i>, we generalize to the fact that cube and sphere also <i>describe the same property of objects</i>, since they both categorize the shape of objects. Meanwhile, knowledge about metaconcepts empowers visual concept learning from limited, noisy, and even biased data.
+            From just a few examples of <i>purple cubes</i> we can understand a new color <i>purple</i>, which resembles the hue of the cubes instead of the shape of them.
+            Evaluation on both synthetic and real-world datasets validates our claims.
+
             We propose the Neuro-Symbolic Concept Learner (NS-CL), a model that learns visual concepts, words, and semantic parsing of sentences without explicit supervision on any of them;
             instead, our model learns by simply looking at images and reading paired questions and answers.
             </p>
 
-            <p>
-            <center>
-            <img width="60%" src="data/img/vqa_example.png"/>
-            </center>
-            </p>
-            <p class="caption">
-            Figure 1: An example image-question pair from the VQS dataset and the corresponding execution trace of the proposed <i>NS-CL</i>.
-            </p>
-
-            <p>Our model builds an object-based scene representation and translates sentences into executable, symbolic programs.
-            To bridge the learning of two modules, we use a neuro-symbolic reasoning module that executes these programs on the latent scene representation.
-            Analogical to human concept learning, the perception module learns visual concepts based on the language description of the object being referred to.
-            Meanwhile, the learned visual concepts facilitate learning new words and parsing new sentences. We use curriculum learning to guide the searching over the large compositional space of images and language.
-            Extensive experiments demonstrate the accuracy and efficiency of our model on learning visual concepts, word representations, and semantic parsing of sentences.
-            Further, our method allows easy generalization to new object attributes, compositions, language concepts, scenes and questions, and even new program domains. It also empowers applications including visual question answering and bidirectional image-text retrieval.
-            </p>
-            <p>
-            </div>
-        </div>
-        <div id="content-container" class="container">
-            <div class="header"><h4><span class="indicator">=</span>Framework</h4></div>
-            <div class="content">
-            <p>
-            <center>
-            <img width="100%" src="data/img/framework.png"/>
-            </center>
-            </p>
-            <p class="caption">
-            Figure 2: We first use a visual perception module to construct an object-based representation
-for a scene, and run a semantic parsing module to translate a question into an executable program. We
-then apply a quasi-symbolic program executor to infer the answer based on the scene representation.
-We use paired images, questions, and answers to jointly train the visual and language modules..
-            </p>
-
-            <dl class="row">
-                <dt class="col-sm-3">The perception module.</dt>
-                <dd class="col-sm-9">Given the input image, we generate object proposals, and extract visual representations for each of the proposal.
-                <dt class="col-sm-3">The semantic parsing module.</dt>
-                <dd class="col-sm-9">The semantic parsing module translates a natural language question into an executable program with a hierarchy of primitive operations.
-                Each concept in the program corresponds to a vector embedding that is jointly trained.
-                </dd>
-                <dt class="col-sm-3">The quasi-symbolic reasoning module.</dt>
-                <dd class="col-sm-9">
-                Given the recovered program, a symbolic program executor executes the program and derives the answer based
-on the object-based visual representation and the concept embeddings. Our program executor is a collection of deterministic
-functional modules.
-                </dd>
-            </dl>
             </div>
         </div>
         <div id="content-container" class="container">
             <div class="header"><h4><span class="indicator">=</span>Resources</h4></div>
             <div class="content">
-                <ul>
-                    <li>The Neuro-Symbolic Concept Learner in <a href="https://github.com/vacancy/NSCL-PyTorch-Release">[PyTorch (Official)]</a>.</li>
-                    <li><a href="http://nscl.csail.mit.edu/data/resources/2019ICLR-NSCL-poster.pdf">[Poster]</a> presented at ICLR 2019.</li>
-                    <li><a href="http://nscl.csail.mit.edu/data/resources/2019ICLR-NSCL.pptx">[Talk slides]</a> presented at ICLR 2019.</li>
-                </ul>
+                Code and data will be made public soon.
             </div>
         </div>
 
         <div id="content-container" class="container">
             <div class="header"><h4><span class="indicator">=</span>Related Publications</h4></div>
             <div class="content">
+                <div class="paper-info paper-info-margin">
+                    <h3 class="title">
+                    The Neuro-Symbolic Concept Learner:
+                    Interpreting Scenes, Words, and Sentences From Natural Supervision</h3>
+                    <p class="authors">
+                        <a href="http://jiayuanm.com/">Jiayuan Mao</a>,
+                        <a href="http://people.csail.mit.edu/ganchuang/">Chuang Gan</a>,
+                        <a href="https://sites.google.com/site/pushmeet/">Pushmeet Kohli</a>,
+                        <a href="http://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>, and
+                        <a href="http://jiajunwu.com/">Jiajun Wu</a>
+                    </p>
+                    <ul class="tag">
+                        <li class="conference"><a href="https://nips.cc/Conferences/2018">ICLR 2019</a> (Oral)</li>
+                        <li><a href="http://nscl.csail.mit.edu/data/papers/2019ICLR-NSCL.pdf">Paper</a> /</li>
+                        <li><a href="http://nscl.csail.mit.edu">Project Page</a> /</li>
+                        <li><a href="http://nscl.csail.mit.edu/data/bibtex/2019ICLR-NSCL.bib">BibTeX</a></li>
+                        <li class="authors">(* indicates equal contributions)</li>
+                    </ul>
+                </div>
                 <div class="paper-info paper-info-margin">
                     <h3 class="title">Neural-Symbolic VQA: Disentangling Reasoning from Vision and Language Understanding</h3>
                     <p class="authors">
