@@ -18,19 +18,19 @@
 
     <style type="text/css">
 body{margin:0;padding:0;background-color:#eee;}
-a{color:#5d6692}
-a:hover{color:#1d3641}
+a{color:#dc906a}
+a:hover{color:#59301b}
 #background{position:fixed;top:0;overflow:hidden;height:0}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
 #main{z-index:2;margin:0 auto;position:absolute;top:5%;width:100%;min-width:240px;text-align:center;}
 
 #main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}
-#main-content{margin:auto;width:86.9791667%;}
+#main-content{margin-left:6.5104167%;width:86.9791667%;}
 @media (min-width: 768px) {
-    #main-content{width:66%;min-width:668px;}
+    #main-content{width:66%;min-width:668px;margin-left:50px}
 }
 @media (min-width: 1200px) {
-    #main-content{width:66%;max-width:900px;}
+    #main-content{width:66%;max-width:900px;margin-left:50px}
 }
 /* Avatar, Name, etc. */
 #main-content-container{margin:0 auto;padding:15px 0em 15px 0em;max-width:1080px;}
@@ -44,7 +44,7 @@ a:hover{color:#1d3641}
 #main-info-container{padding-top:15px}
 #main-info-container .col-name{text-align:center}
 #main-info-container .col-name .textbox-info{display:inline-block;margin:0 auto;text-align:left}
-#main-info-container .col-name .name{margin:0;color:#1d3641;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
+#main-info-container .col-name .name{margin:0;color:#5a301b;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
 #main-info-container .col-name .email{color:#666; font-size:14px}
 #main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
 #main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
@@ -59,10 +59,10 @@ a:hover{color:#1d3641}
 #main-more-container{background:#ffffff;width:100%;padding:0 30px}
 
 #main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-#main-bio-container .subtitle{margin-top:30px;color:#1d3641}
+#main-bio-container .subtitle{margin-top:30px;color:#5a301b}
 
 #main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
-#main-pub-container .subtitle{color:#1d3641;}
+#main-pub-container .subtitle{color:#5a301b;}
 #main-pub-container .subtitle a {font-weight:400;font-size:18px}
 #main-pub-container .subtitle a.activated {color:#333333}
 #main-pub-container .subtitle a.activated:focus,
@@ -107,7 +107,7 @@ a:hover{color:#1d3641}
 
 <body>
 
-<!--img src="static/img/798_ext.jpg" id="background" class="" /-->
+<img src="static/img/798_ext.jpg" id="background" class="" />
 
 <div id="main">
     <!--canvas id="wave-canvas"></canvas-->
@@ -115,10 +115,10 @@ a:hover{color:#1d3641}
     <div id="main-content">
         <div id="main-content-container" class="container">
           <div class="row">
-            <!--div class="col-sm-12 col-md-3 col-avatar">
-                <!--img src="static/img/avatar4.jpg" class="avatar" class="" />
-            </div-->
-            <div class="col-sm-12 col-md-12 col-info">
+            <div class="col-sm-12 col-md-3 col-avatar">
+                <img src="static/img/avatar4.jpg" class="avatar" class="" />
+            </div>
+            <div class="col-sm-12 col-md-9 col-info">
                 <div id="main-info-container" class="container">
                     <div class="row">
                         <div class="col-md-12 col-xl-7 col-name">
@@ -491,10 +491,8 @@ a:hover{color:#1d3641}
                 <div class="copyright">
                     &copy; 2015-2019<br />
                     <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
-                    <!--
                     Background photo: 798 Art Zone, Beijing, China. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.<br />
                     Avatar photo: MIT, Cambridge, USA. 2018, by <a href="http://linji.me/">Ji Lin</a>.
-                    -->
                 </div>
             </div>
         </div>
@@ -714,7 +712,7 @@ $(function() {
         })
     };
 
-    // fullBg();
+    fullBg();
     animatedLink(400);
 
     allPublications = $("#main-pub-card-container .pub-card");
