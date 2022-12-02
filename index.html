@@ -17,47 +17,51 @@
     <![endif]-->
 
     <style type="text/css">
-body{margin:0;padding:0;background-color:#fff;}
+body{margin:0;padding:0;}
 a{color:#4e613e}
 a:hover{color:#566c7f}
 #background{position:fixed;top:0;overflow:hidden;height:0}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
-#main{z-index:2;margin:0 auto;position:absolute;top:5%;width:100%;min-width:240px;text-align:center;}
+/*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
+#main{margin:0 auto;padding:15px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}
 
-#main-content{padding:0;text-align:center;cursor:default;text-align:center;}
+.main-content{padding:0;text-align:center;cursor:default;text-align:center;}
 /*#main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
-#main-content{margin-left:6.5104167%;width:86.9791667%;}
+/*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
 @media (min-width: 768px) {
-    #main-content{width:66%;min-width:668px;margin:auto;}
+    .main-content{width:66%;min-width:668px;margin:auto;}
 }
 @media (min-width: 1200px) {
-    #main-content{width:66%;max-width:900px;margin:auto;}
+    .main-content{width:66%;max-width:900px;margin:auto;}
 }
-/*#main-content {
+/*.main-content {
     width:86.9791667%;
     margin: 0 auto;
 }
 @media (min-width: 768px) {
-    #main-content{width:66%;min-width:668px;}
+    .main-content{width:66%;min-width:668px;}
 }
 @media (min-width: 1200px) {
-    #main-content{width:66%;max-width:900px;}
+    .main-content{width:66%;max-width:900px;}
 }*/
 /* Avatar, Name, etc. */
-#main-content-container{margin:0 auto;padding:15px 0em 15px 0em;max-width:1080px;}
+#main-content-container{margin:0 auto;padding:15px 0 0;max-width:1080px;}
 @media (min-width: 768px) {
-    #main-content-container{padding:15px 0 15px 2em;}
+    #main-content-container{padding:15px 0;}
 }
 #main-content-container .col-avatar{text-align:center}
 @media (min-width: 768px) {
-    #main-content-container .col-avatar{text-align:right}
+    #main-content-container .col-avatar{text-align:center}
 }
 #main-content-container .col-avatar .avatar{z-index:100;width:150px;height:150px;margin-top:0px;border-radius:100%;box-shadow:0 0 0 0.3em #eee;opacity:1;}
 
-#main-content-container .col-info{height:100%;align-items:center;display:-webkit-flex;height:150px}
+#main-content-container .col-info{height:100%;align-items:center;}
 #main-info-container{padding-top:15px}
-#main-info-container .col-name{text-align:center}
-#main-info-container .col-name .textbox-info{display:inline-block;margin:0 auto;text-align:left}
+#main-info-container .col-name{text-align:center;margin-top:30px}
+@media (min-width: 768px) {
+    #main-info-container .col-name{text-align:left;margin-top:0;}
+}
+#main-info-container .col-name .text{text-align:left}
 #main-info-container .col-name .name{margin:0;color:#566c7f;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
 #main-info-container .col-name .email{color:#666; font-size:14px}
 #main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
@@ -70,10 +74,10 @@ a:hover{color:#566c7f}
 #main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
 
 /* Other */
-#main-more-container{background:#ffffff;width:100%;padding:0 30px}
+.main-more-container{width:100%;padding:0 30px}
 
-#main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-#main-bio-container .subtitle{margin-top:30px;color:#566c7f}
+.main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
+.main-bio-container .subtitle{margin-top:0px;color:#566c7f}
 
 #main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
 #main-pub-container .subtitle{color:#566c7f;}
@@ -106,7 +110,7 @@ a:hover{color:#566c7f}
 #main-pub-card-container .col-l,
 #main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:1.5em 0 1.5em;min-width:240px;background:#fff;opacity:0.95;font-size:14px;line-height:12px;text-align:left}
+#footer{padding:1.5em 0 1.5em;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left}
 #footer .container{max-width:540px;padding:0 45px}
 #footer .row{align-items:center}
 #footer .stat{width:90px;overflow:hidden;margin:0 auto;padding:0 15px;}
@@ -128,36 +132,32 @@ a:hover{color:#566c7f}
 <div id="main">
     <!--canvas id="wave-canvas"></canvas-->
 
-    <div id="main-content">
+    <div class="main-content">
         <div id="main-content-container" class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-3 col-avatar">
-                <img src="static/img/avatar11.jpg" class="avatar" />
-            </div>
-            <div class="col-sm-12 col-md-9 col-info">
-                <div id="main-info-container" class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-xl-6 col-name">
-                            <div class="textbox-info">
-                                <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
-                                <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-avatar">
+                    <img src="static/img/avatar11.jpg" class="avatar" />
+                </div>
+                <div class="col-sm-12 col-md-9">
+                    <div id="main-info-container">
+                            <div class="col-name">
+                                    <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
+                                    <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
+                                    <p class="text">I am a fourth-year PhD student at <a href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
+Prof. <a href="https://cocosci.mit.edu/josh", target="_blank"> Josh Tenenbaum</a> and
+Prof. <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Kaelbling</a>.
+Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University.</p>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="main-more-container">
-        <div id="main-bio-container">
-            <p>
-            I am a fourth-year PhD student at <a href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
-            Prof. <a href="https://cocosci.mit.edu/josh", target="_blank"> Josh Tenenbaum</a> and
-            Prof. <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Kaelbling</a>.
-            Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University.
-            </p>
-
+<div class="main-content">
+    <div class="main-more-container">
+        <div class="main-bio-container">
             <h5 class="subtitle">News</h5>
             <ul>
                 <li>To junior PhD/master/undergraduate students: if you would like to chat about research ideas, projects or career plan related to AI/ML, feel free to email me to schedule a meeting. I will dedicate 30 mins every week for such chatting. I will prioritize meetings with students from <i>underrepresented groups</i> in STEM.</li>
@@ -165,7 +165,7 @@ a:hover{color:#566c7f}
                 <li>I'm co-organizing the <a href="http://nscv.csail.mit.edu/" class="highlight">Neuro-Symbolic Visual Reasoning and Program Synthesis</a> tutorial at CVPR 2020.</li>
             </ul>
 
-            <h5 class="subtitle">Research Highlights</h5>
+            <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
             <p>
             My long-term research goal is to build machines that can continually learn concepts (<i>e.g.,</i> properties, relations, skills, and rules) from their experiences and apply them for reasoning and planning in the physical world.
             </p>
@@ -175,7 +175,9 @@ a:hover{color:#566c7f}
                 <li><b>Scene & Activity Understanding</b>: programmatic scene understanding, activity understanding.</li>
             </ul>
         </div>
+    </div>
 
+    <div class="main-more-container">
         <div id="main-pub-container">
             <h5 class="subtitle">Publications
             (
@@ -1150,7 +1152,7 @@ $(function() {
         }
     };
 
-    targetColor = $("#main-content-container .col-info .name").css("color");
+    targetColor = $("#main-content-container .name").css("color");
     animatedLink = function(speed) {
         $("#main-content-container .col-link li").hover(function() {
             $(this).find('.icon').animate({
