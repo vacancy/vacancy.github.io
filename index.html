@@ -110,11 +110,16 @@ a:hover{color:#566c7f}
 #main-pub-card-container .col-l,
 #main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:1.5em 0 1.5em;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left}
-#footer .container{max-width:540px;padding:0 45px}
+#footer{padding:1.5em 0 1.5em;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3}
+#footer .container{max-width:540px;padding:0 45px;position:relative}
 #footer .row{align-items:center}
 #footer .stat{width:90px;overflow:hidden;margin:0 auto;padding:0 15px;}
-#footer .copyright{flex-grow:1;margin:5px auto 5px;text-align:left;display:block;font-size:14px;line-height:1.4}
+#footer .copyright{flex-grow:1;margin:5px auto 5px;text-align:left;display:block;font-size:14px;line-height:1.4;color:#666666}
+#footer .comic{position:absolute;right:0px;bottom:-0.5rem}
+@media (min-width: 768px) {
+  #footer .copyright{padding-left:2em}
+  #footer .comic{right:100px;}
+}
 #footer a{color:#666666}
 #footer a:hover{color:#333333}
 
@@ -943,27 +948,29 @@ Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.e
             </div>
         </div>
     </div>
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="stat">
-                    <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s"></script>
-                    <!--script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s&cl=ffffff&w=a"></script-->
-                </div>
-                <div class="copyright">
-                    &copy; 2015-2022 Jiayuan Mao.<br />
-                    <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
-                    <!--Background photo: 798 Art Zone, Beijing, China. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.<br />-->
-                    <!--Background photo: Solvang, CA, USA. 2017,
-                    <span style="color: #f4f4f4">with you.</span><br />
-                    <span style="color: #f4f4f4">I miss you so much.</span-->
-                    <!--Avatar photo: Hynes Convention Center, Boston, MA. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.-->
-                    <!--Avatar photo: MIT, Cambridge, MA, USA. 2018, by <a href="http://linji.me/">Ji Lin</a>.-->
-                </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="stat">
+                <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s"></script>
+                <!--script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s&cl=ffffff&w=a"></script-->
+            </div>
+            <div class="copyright">
+                &copy; 2015-2022 Jiayuan Mao<br />
+                <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
+                <!--Background photo: 798 Art Zone, Beijing, China. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.<br />-->
+                <!--Background photo: Solvang, CA, USA. 2017,
+                <span style="color: #f4f4f4">with you.</span><br />
+                <span style="color: #f4f4f4">I miss you so much.</span-->
+                <!--Avatar photo: Hynes Convention Center, Boston, MA. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.-->
+                <!--Avatar photo: MIT, Cambridge, MA, USA. 2018, by <a href="http://linji.me/">Ji Lin</a>.-->
             </div>
         </div>
+        <div class="comic"><img src="static/img/rabbit-working.jpg" height="90px" /></div>
     </div>
 </div>
+
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
