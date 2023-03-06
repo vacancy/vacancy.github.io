@@ -81,8 +81,8 @@ a:hover{color:#566c7f}
 
 #main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
 #main-pub-container .subtitle{color:#566c7f;}
-#main-pub-container .subtitle a {font-weight:400;font-size:18px}
-#main-pub-container .subtitle a.activated {color:#333333}
+#main-pub-container .subtitle a {font-size:18px; color: #96a5b3; font-weight:400}
+#main-pub-container .subtitle a.activated {color:#333333; font-weight:600}
 #main-pub-container .subtitle a.activated:focus,
 #main-pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
 
@@ -975,7 +975,7 @@ Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.e
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script type="text/javascript" src="static/js/jquery.color.min.js"></script>
-<script type="text/javascript" src="static/js/wave.js"></script>
+<!--script type="text/javascript" src="static/js/wave.js"></script-->
 <script type="text/javascript">
 
 $.fn.isInViewport = function() {
@@ -1118,6 +1118,10 @@ $(function() {
         var mainContainer = $("#main");
         var firstFire = null;
 
+        if (bgImg.length == 0) {
+            return ;
+        }
+
         function resizeImg() {
             var realSize = getRealSize(bgImg);
             var imgWidth = realSize.width;
@@ -1181,7 +1185,7 @@ $(function() {
         })
     };
 
-    fullBg();
+    // fullBg();
     animatedLink(400);
 
     allPublications = $("#main-pub-card-container .pub-card");
