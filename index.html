@@ -25,6 +25,11 @@ a:hover{color:#566c7f}
 /*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
 #main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}
 
+.profile-rabbit {display:none}
+@media (min-width: 768px) {
+    .profile-rabbit {display:block}
+}
+
 .main-content{padding:0;text-align:center;cursor:default;text-align:center;}
 /*#main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
 /*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
@@ -141,15 +146,15 @@ a:hover{color:#566c7f}
                 </div>
                 <div class="col-sm-12 col-md-9">
                     <div id="main-info-container">
-                      <div style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div>
-                            <div class="col-name">
-                                    <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
-                                    <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
-                                    <p class="text">I am a fourth-year PhD student at <a href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
+                        <div class="profile-rabbit" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div>
+                        <div class="col-name">
+                            <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
+                            <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
+                            <p class="text">I am a fourth-year PhD student at <a href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
 Prof. <a href="https://cocosci.mit.edu/josh", target="_blank"> Josh Tenenbaum</a> and
 Prof. <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Kaelbling</a>.
 Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University.</p>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
