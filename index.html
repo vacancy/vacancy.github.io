@@ -124,8 +124,11 @@ a:hover{color:#bc6262;cursor:pointer}
 #footer .container{max-width:540px;padding:0 45px;position:relative}
 #footer .row{align-items:center}
 #footer .comic{padding-right:15px;padding-top:15px;}
-#footer .stat{width:60px;overflow:hidden;margin:0 auto -25px;padding-right:15px;}
 #footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:left;display:block;font-size:1rem;line-height:1.4;color:#eeeeee}
+#footer .stat{width:60px;height:60px;overflow:hidden;margin:0 auto 5px;padding 0;}
+@media (min-width: 420px){
+  #footer .stat{display:block;width:60px;height:60px;overflow:hidden;margin:5px auto -25px;padding-right:15px;}
+}
 #footer a{color:#666666}
 #footer a:hover{color:#333333}
 
