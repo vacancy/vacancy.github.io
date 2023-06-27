@@ -18,15 +18,22 @@
 
     <style type="text/css">
 body{margin:0;padding:0;}
-a{color:#4e613e}
-a:hover{color:#566c7f}
+a{color:#8d5638}
+a:hover{color:#bc6262;cursor:pointer}
 #background{position:fixed;top:0;overflow:hidden;height:0}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
 /*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
-#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}
+#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:#fafcff}
+.highlight{color:#b6274e;font-weight:600}
+.highlight:hover{color:#b6274e;font-weight:600}
+
+.profile-rabbit {display:none}
+@media (min-width: 768px) {
+    .profile-rabbit {display:block}
+}
 
 .main-content{padding:0;text-align:center;cursor:default;text-align:center;}
-/*#main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
+/*.main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
 /*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
 @media (min-width: 768px) {
     .main-content{width:66%;min-width:668px;margin:auto;}
@@ -44,6 +51,7 @@ a:hover{color:#566c7f}
 @media (min-width: 1200px) {
     .main-content{width:66%;max-width:900px;}
 }*/
+
 /* Avatar, Name, etc. */
 #main-content-container{margin:0 auto;padding:15px 0 0;max-width:1080px;}
 @media (min-width: 768px) {
@@ -110,18 +118,21 @@ a:hover{color:#566c7f}
 #main-pub-card-container .col-l,
 #main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3}
+/* #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3} */
+#footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;}
+#footer{background:url(static/img/girl-with-fish-bg.jpg); background-size: 15px 15px; background-repeat: repeat;}
 #footer .container{max-width:540px;padding:0 45px;position:relative}
 #footer .row{align-items:center}
-#footer .comic{padding-right:15px;}
-#footer .stat{width:60px;overflow:hidden;margin:0 auto -25px;padding-right:15px;}
-#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:left;display:block;font-size:1rem;line-height:1.4;color:#666666}
+#footer .comic{padding-right:15px;padding-top:15px;}
+#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:left;display:block;font-size:1rem;line-height:1.4;color:#eeeeee}
+#footer .stat{width:60px;height:60px;overflow:hidden;margin:0 auto 5px;padding 0;}
+@media (min-width: 420px){
+  #footer .stat{display:block;width:60px;height:60px;overflow:hidden;margin:5px auto -25px;padding-right:15px;}
+}
 #footer a{color:#666666}
 #footer a:hover{color:#333333}
 
 .bold{font-weight:600}
-.highlight{color:#BB2222;font-weight:600}
-.highlight:hover{color:#BB2222;font-weight:600}
 .hide{display:none}
     </style>
 </head>
@@ -137,19 +148,19 @@ a:hover{color:#566c7f}
         <div id="main-content-container" class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-avatar">
-                    <img src="static/img/avatar11.jpg" class="avatar" />
+                    <img src="static/img/avatar16.jpg" class="avatar" />
                 </div>
                 <div class="col-sm-12 col-md-9">
                     <div id="main-info-container">
-                      <div style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div>
-                            <div class="col-name">
-                                    <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
-                                    <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
-                                    <p class="text">I am a fourth-year PhD student at <a href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
+                        <!--div class="profile-rabbit" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
+                        <div class="col-name">
+                            <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
+                            <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
+                            <p class="text">Jiayuan Mao is a fourth-year PhD student at <a href="https://www.eecs.mit.edu" target="_blank">MIT EECS</a>, advised by
 Prof. <a href="https://cocosci.mit.edu/josh", target="_blank"> Josh Tenenbaum</a> and
 Prof. <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Kaelbling</a>.
-Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University.</p>
-                            </div>
+Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/" target="_blank">YaoClass</a>, Tsinghua University.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,12 +174,13 @@ Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.e
             <h5 class="subtitle">News</h5>
             <ul>
                 <li>
-                    To junior PhD/master/undergraduate students: if you would like to chat about research ideas, projects or career plan related to AI/ML, feel free to email me to schedule a meeting.
-                    I will dedicate 30 mins every week for such chatting. I will prioritize meetings with students from <i><a href="javascript:$('#popover-underrepresented').slideToggle();">underrepresented groups</a></i> in STEM.
-                    <p id="popover-underrepresented" style="display:none;margin:1rem 0"><i>Underrepresented groups</i>: including but not limited to gender/racial/ethnic minority groups. Please indicate your self identification in your email.</p>
+                    To junior PhD/master/undergraduate students: if you would like to chat about life, career plan, or research ideas related to AI/ML, feel free to email me to schedule a meeting.
+                    I will dedicate 30 mins every week for such meetings. I encourage students from <i><a href="javascript:$('#popover-underrepresented').slideToggle();">underrepresented groups</a></i> to reach out and will prioritize these meetings.
+                    <p id="popover-underrepresented" style="display:none;margin:1rem 0"><i>Underrepresented groups</i>: including but not limited to gender/racial/ethnic minority groups.</p>
                 </li>
-                <li>I'm co-organizing the <a href="https://vigilworkshop.github.io" class="highlight">Visually Grounded Interaction and Language (VIGIL)</a> workshop at NAACL 2021.</li>
-                <li>I'm co-organizing the <a href="http://nscv.csail.mit.edu/" class="highlight">Neuro-Symbolic Visual Reasoning and Program Synthesis</a> tutorial at CVPR 2020.</li>
+                <li>I will be giving a talk at the <a href="https://mit-spark.github.io/robotRepresentations-RSS2023/" class="highlight" target="_blank">Robot Representations For Scene Understanding, Reasoning and Planning</a> workshop at RSS 2023.</li>
+                <!--li>I'm co-organizing the <a href="https://vigilworkshop.github.io" class="highlight">Visually Grounded Interaction and Language (VIGIL)</a> workshop at NAACL 2021.</li-->
+                <!--li>I'm co-organizing the <a href="http://nscv.csail.mit.edu/" class="highlight">Neuro-Symbolic Visual Reasoning and Program Synthesis</a> tutorial at CVPR 2020.</li-->
             </ul>
 
             <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
@@ -948,7 +960,8 @@ Previously, I obtained my bachelor's degree from <a href="http://iiis.tsinghua.e
 <div id="footer">
     <div class="container">
         <div class="row">
-            <div class="comic"><img src="static/img/rabbit-working.jpg" height="90px" /></div>
+            <!--div class="comic"><img src="static/img/rabbit-working.jpg" height="90px" /></div-->
+            <div class="comic"><img src="static/img/girl-with-fish.jpg" height="90px" /></div>
             <div class="copyright">
                 &copy; 2015-2022 Jiayuan Mao<br />
                 <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
