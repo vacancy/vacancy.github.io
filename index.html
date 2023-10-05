@@ -103,8 +103,12 @@ a:hover{color:#bc6262;cursor:pointer}
 #main-pub-card-container{}
 #main-pub-card-container>h5{margin-bottom: 20px}
 #main-pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
-#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px;flex:0 0 30%;max-width:30%;}
-#main-pub-card-container .pub-card .col-r{padding-top:10px;flex:0 0 70%;max-width:70%}
+#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
+#main-pub-card-container .pub-card .col-r{padding-top:10px}
+@media (min-width: 768px) {
+  #main-pub-card-container .pub-card .col-l{flex:0 0 30%;max-width:30%}
+  #main-pub-card-container .pub-card .col-r{flex:0 0 70%;max-width:70%}
+}
 #main-pub-card-container .pub-card img{width:100%;margin:0 auto}
 #main-pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
 #main-pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
