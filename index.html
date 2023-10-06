@@ -9,6 +9,7 @@
     <meta name="keywords" content="Jiayuan Mao,Computer Vision,Natural Language Processing,Machine Learning,Cognitive Science">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/flowchart.css">
     <link rel="shortcut icon" href="static/img/favicon.ico">
 
     <!--[if lt IE 9]>
@@ -189,13 +190,91 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
 
             <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
             <p>
-            My long-term research goal is to build machines that can continually learn concepts (<i>e.g.,</i> properties, relations, skills, and rules) from their experiences and apply them for reasoning and planning in the physical world.
+            My long-term research goal is to build machines that can continually learn concepts (<i>e.g.,</i> properties, relations, skills, rules and algorithms) from their experiences and apply them for reasoning and planning in the physical world. The central theme of my research is to decompose the learning problem into learning a vocabulary of <i>neuro-symbolic concepts</i>. The symbolic part describes their structures and how different concepts can be composed; the neural part handles grounding in perception and physics. I leverage structures to make learning more data-efficient, more compositionally generalizable, and also reasoning and planning faster.
+
+            <!-- (<i>e.g.,</i> <a class="highlight">red</a> is a unary function that returns Booleans, actions have Hoare-logic-like preconditions and postconditions), and their structures (<i>e.g.,</i> a push action only changes the pose of one object if being collision-free, a wiping policy has for-loops) -->
             </p>
-            <ul>
-                <li><b>Concept Learning</b>: neuro-symbolic concept learning, grammar-based language learning, pragmatics.</li>
-                <li><b>Reasoning & Planning</b>: relational and temporal models for reasoning, skill learning, task and motion planning.</li>
-                <li><b>Scene & Activity Understanding</b>: programmatic scene understanding, activity understanding.</li>
-            </ul>
+
+<section class="overview" id="overview">
+  <div class="main thick"><b>Neuro-Symbolic Concepts: Representations</b></div>
+  <ul class="row">
+    <li class="page stretch join up down">
+      <div class="thin">
+        <b>Language Syntax</b>
+        <ul class="content">
+          <li><i>Phrase Structure from Grounding</i>: <a target="_blank" href="https://ttic.uchicago.edu/~freda/project/vgnsl/">[Visually-Grounded Neural Syntax]</a></li>
+          <li><i>Combinatory Categorial Grammar</i>:<br /><a target="_blank" href="http://g2l2.csail.mit.edu/">[Grammar-Based Grounded Lexicon]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="page stretch join up down">
+      <div class="thin">
+        <b>Visual Concepts</b>
+        <ul class="content">
+          <li><i>Object-Centric Concepts</i>:<br /><a href="http://nscl.csail.mit.edu">[Neuro-Symbolic Concept Learner]</a>, <a href="http://nscl.csail.mit.edu">[Unified Visual Semantic Embedding]</a></li>
+          <li class="level-2">+ <i>3D</i> <a target="_blank" href="http://web.stanford.edu/~joycj/projects/ns3d_cvpr_2023.html">[Neuro-Symbolic 3D]</a></li>
+          <li><i>Metaconcepts</i>:<br /><a target="_blank" href="http://vcml.csail.mit.edu">[Visual Concept & Metaconcept]</a></li>
+          <li class="level-2">+ <i>Continual Learning</i>: <a target="_blank" href="https://people.csail.mit.edu/jerrymei/projects/falcon/">[FALCON]</a></li>
+          <li><i>Physical Events and Causality</i>: <a target="_blank" href="http://dcl.csail.mit.edu/">[Dynamic Concept Learning]</a>, <a target="_blank" href="https://sites.google.com/stanford.edu/clevrer-humans">[CLEVRER-Humans]</a></li>
+          <!-- <li><i>Temporal-Logic Events</i>:<br /><a target="_blank" href="http://toqnet.csail.mit.edu/">[Temporal and Object Quantification]</a></li> -->
+          <li><i>Programmatic Scene Programs</i>: <a target="_blank" href="http://pgim.csail.mit.edu/">[Program-Guided Image Manip.]</a>
+          <li class="level-2">+ <i>Perspective</i>: <a target="_blank" href="http://p3i.csail.mit.edu/">[P3I]</a></li>
+          <li class="level-2">+ <i>Multi-Plane</i>: <a target="_blank" href="http://bpi.csail.mit.edu/">[Box Program]</a></li>
+          <li><i>Programmatic Human Motion</i>: <a target="_blank" href="https://sumith1896.github.io/motion2prog/">[Motion Program]</a>, <a target="_blank" href="https://sumith1896.github.io/motion-concepts/">[Motion Concept]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="page stretch join up down">
+      <div class="thin">
+        <b>Action Concepts</b>
+        <ul class="content">
+          <li><i>Neuro-Symbolic Transition Model</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
+          <li><i>Neuro-Symbolic Policies</i>: <a target="_blank" href="https://progport.github.io/">[NSPort]</a></li>
+          <li><i>Contact-Centric Skill Modeling</i>: <a href="javascript:;">[Manipulation Mechanism]</a></li>
+          <li><i>Part-Centric Skill Modeling</i>:<br /><a href="javascript:;">[Composable Part-Based Policy]</a></li>
+          <li><i>Compositional Samplers</i>:<br /><a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div class="main thick"><b>Learning, Reasoning and Planning Algorithms</b></div>
+  <ul class="row">
+    <li class="page join down">
+      <div class="thin">
+        <b>Differentiable Concept Learning</b>
+        <ul class="content">
+          <li><i>Differentiable Reasoning</i>:<br /><a href="http://nscl.csail.mit.edu">[Neuro-Symbolic Concept Learner]</a> <a href="javascript:;">[Logic-Enhanced Foundation Model]</a></li>  
+          <li><i>First-Order Logic Rules and Policies</i>:<br /><a target="_blank" href="https://sites.google.com/view/neural-logic-machines">[Neural Logic Machines]</a></li>
+          <li class="level-2">+ <i>FOL Expressiveness and Generalization</i>: <a target="_blank" href="https://arxiv.org/abs/2303.05490">[NLM Theory]</a></li>
+          <li class="level-2">+ <i>Sparse and Locality</i>: <a target="_blank" href="https://spaloc.csail.mit.edu/">[SpaLoc]</a></li>
+          <li class="level-2">+ <i>Policy Expressiveness</i>: <a href="javascript:;">[Regression Width]</a></li>
+          <li><i>Temporal Logic Rules and Policies</i>:<br /><a target="_blank" href="http://toqnet.csail.mit.edu">[Temporal and Object Quantification]</a></li>
+          <li class="level-2">+ <i>Rationality</i>: <a target="_blank" href="http://rsg.csail.mit.edu">[Rational Subgoals]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="page join down">
+      <div class="thin">
+        <b>Transition and Sampler Learning</b>
+        <ul class="content">
+          <li><i>Neuro-Symbolic Model Learning</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
+          <li><i>Compositional Constraint Solvers</i>:<br /><a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="page join down">
+      <div class="thin">
+        <b>Manipulation Planning</b>
+        <ul class="content">
+          <li><i>Planning with Neuro-Symbolic Domains</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
+          <li class="level-2">+ <i>Compositional Samplers</i>: <a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
+          <li class="level-2">+ <i>Mechanisms</i>:<br /><a href="javascript:;">[Manipulation Mechanism]</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</section>
+
         </div>
     </div>
 
@@ -304,8 +383,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                 </h6>
                                 <p class="info">
                                     <a target="_blank" href="https://www.corl2023.org/" class="conference">CoRL 2023</a>
-                                    <p><a href="http://arxiv.org/abs/2309.00966" target="_blank">Paper</a> /
-                                    <a href="https://diffusion-ccsp.github.io/" target="_blank">Project Page</a>
+                                    <p><a target="_blank" href="http://arxiv.org/abs/2309.00966">Paper</a> /
+                                    <a target="_blank" href="https://diffusion-ccsp.github.io/">Project Page</a>
                                 </p>
                             </div>
                         </div>
