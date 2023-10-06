@@ -88,6 +88,11 @@ a:hover{color:#bc6262;cursor:pointer}
 .main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
 .main-bio-container .subtitle{margin-top:0px;color:#566c7f}
 
+
+.toggle-overview {background:#fafcff;display:block;text-align:center;padding:5px;color:#566c7f;font-weight:500}
+.toggle-overview:hover {text-decoration:none}
+@media (max-width: 560px) {section.overview {display:none}}
+
 #main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
 #main-pub-container .subtitle{color:#566c7f;}
 #main-pub-container .subtitle a {font-size:18px; color: #96a5b3; font-weight:400}
@@ -194,6 +199,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
 
             <!-- (<i>e.g.,</i> <a class="highlight">red</a> is a unary function that returns Booleans, actions have Hoare-logic-like preconditions and postconditions), and their structures (<i>e.g.,</i> a push action only changes the pose of one object if being collision-free, a wiping policy has for-loops) -->
             </p>
+            <p><a class="toggle-overview" href="javascript:$('#overview').slideToggle();">Show/Hide Research Agenda</a></p>
 
 <section class="overview" id="overview">
   <div class="main thick"><b>Neuro-Symbolic Concepts: Representations</b></div>
