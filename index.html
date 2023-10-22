@@ -91,7 +91,9 @@ a:hover{color:#bc6262;cursor:pointer}
 
 .toggle-overview {background:#fafcff;display:block;text-align:center;padding:5px;color:#566c7f;font-weight:500}
 .toggle-overview:hover {text-decoration:none}
-@media (max-width: 560px) {section.overview {display:none}}
+/* @media (max-width: 560px) {section.overview {display:none}} */
+.thick>p {font-size: 1rem}
+.thick>p>a, .think>p>a:hover {background:#fafcff;display:block;text-align:center;padding:5px;color:#566c7f;font-weight:500;text-decoration:none}
 
 #main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
 #main-pub-container .subtitle{color:#566c7f;}
@@ -199,15 +201,19 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
 
             <!-- (<i>e.g.,</i> <a class="highlight">red</a> is a unary function that returns Booleans, actions have Hoare-logic-like preconditions and postconditions), and their structures (<i>e.g.,</i> a push action only changes the pose of one object if being collision-free, a wiping policy has for-loops) -->
             </p>
-            <p><a class="toggle-overview" href="javascript:$('#overview').slideToggle();">Show/Hide Research Agenda</a></p>
 
 <section class="overview" id="overview">
-  <div class="main thick"><b>Neuro-Symbolic Concepts: Representations</b></div>
-  <ul class="row">
+  <div class="main thick">
+    <b>Neuro-Symbolic Concepts: Representations</b>
+    <p>How should we represent object categories, properties, relations, spatial-temporal events, actions?</p>
+    <p>How to capture the programmatic structures underlying these concepts (<i>The Theory-Theory of Concepts</i>)?</p>
+    <p><a href="javascript:$('#overview-representation ul.content').slideToggle();">Show/Hide Work on Representations</a></p>
+  </div>
+  <ul class="row" id="overview-representation">
     <li class="page stretch join up down">
       <div class="thin">
         <b>Language Syntax</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Phrase Structure from Grounding</i>: <a target="_blank" href="https://ttic.uchicago.edu/~freda/project/vgnsl/">[Visually-Grounded Neural Syntax]</a></li>
           <li><i>Combinatory Categorial Grammar</i>:<br /><a target="_blank" href="http://g2l2.csail.mit.edu/">[Grammar-Based Grounded Lexicon]</a></li>
         </ul>
@@ -216,7 +222,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <li class="page stretch join up down">
       <div class="thin">
         <b>Visual Concepts</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Object-Centric Concepts</i>:<br /><a href="http://nscl.csail.mit.edu">[Neuro-Symbolic Concept Learner]</a>, <a href="https://arxiv.org/abs/1904.05521v1">[Unified Visual Semantic Embedding]</a></li>
           <li class="level-2">+ <i>3D</i> <a target="_blank" href="http://web.stanford.edu/~joycj/projects/ns3d_cvpr_2023.html">[Neuro-Symbolic 3D]</a></li>
           <li><i>Metaconcepts</i>:<br /><a target="_blank" href="http://vcml.csail.mit.edu">[Visual Concept & Metaconcept]</a></li>
@@ -234,7 +240,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <li class="page stretch join up down">
       <div class="thin">
         <b>Action Concepts</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Neuro-Symbolic Transition Model</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
           <li><i>Neuro-Symbolic Policies</i>: <a target="_blank" href="https://progport.github.io/">[NSPort]</a></li>
           <li><i>Contact-Centric Skill Modeling</i>: <a target="_blank" href="https://openreview.net/pdf?id=ihqTtzS83VS">[Manipulation Mechanisms]</a></li>
@@ -243,12 +249,17 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
       </div>
     </li>
   </ul>
-  <div class="main thick"><b>Learning, Reasoning and Planning Algorithms</b></div>
-  <ul class="row">
+  <div class="main thick">
+    <b>Learning, Reasoning and Planning Algorithms</b>
+    <p>How can we efficiently learn these concepts from natural supervisions (<i>e.g.</i>, language, videos)?</p>
+    <p>How can we leverage the programmatic structures of these concepts to make inference and planning faster?</p>
+    <p><a href="javascript:$('#overview-algorithm ul.content').slideToggle();">Show/Hide Work on Algorithms</a></p>
+  </div>
+  <ul class="row" id="overview-algorithm">
     <li class="page join down">
       <div class="thin">
         <b>Differentiable Concept Learning</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Differentiable Reasoning</i>:<br /><a href="http://nscl.csail.mit.edu">[Neuro-Symbolic Concept Learner]</a> <a href="javascript:;">[Logic-Enhanced FM - TBA]</a></li>
           <li class="level-2">+ <i>Joint Syntax Learning</i>: <a target="_blank" href="http://g2l2.csail.mit.edu/">[G2L2]</a></li>
           <li><i>First-Order Logic Rules and Policies</i>:<br /><a target="_blank" href="https://sites.google.com/view/neural-logic-machines">[Neural Logic Machines]</a></li>
@@ -263,7 +274,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <li class="page join down">
       <div class="thin">
         <b>Transition and Sampler Learning</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Neuro-Symbolic Model Learning</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
           <li><i>Compositional Constraint Solvers</i>:<br /><a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
         </ul>
@@ -272,7 +283,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <li class="page join down">
       <div class="thin">
         <b>Planning</b>
-        <ul class="content">
+        <ul class="content hide">
           <li><i>Planning with Neuro-Symbolic Domains</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
           <li class="level-2">+ <i>Compositional Samplers</i>: <a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
           <li class="level-2">+ <i>Mechanisms</i>:<br /><a target="_blank" href="https://openreview.net/pdf?id=ihqTtzS83VS">[Manipulation Mechanisms]</a></li>
