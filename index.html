@@ -9,7 +9,6 @@
     <meta name="keywords" content="Jiayuan Mao,Computer Vision,Natural Language Processing,Machine Learning,Cognitive Science">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/css/flowchart.css">
     <link rel="shortcut icon" href="static/img/favicon.ico">
 
     <!--[if lt IE 9]>
@@ -18,40 +17,38 @@
     <![endif]-->
 
     <style type="text/css">
+:root {
+    --background-color: #fefbf5;
+    --highlight-color: #b6274e;
+    --main-color: #684e43;
+    --link-color: #86985c;
+    --link-color-hover: #8e6e29;
+    --secondary-link-color: #6d8436;
+    --secondary-link-border-color: #a5af97;
+    --secondary-content-background-color: #fffefc;
+    --link-button-background-color: #fffdfa;
+    /* a8826c 324d67 */
+}
 body{margin:0;padding:0;}
-a{color:#8d5638}
-a:hover{color:#bc6262;cursor:pointer}
+a{color:var(--link-color)}
+a:hover{color:var(--link-color-hover);cursor:pointer}
 #background{position:fixed;top:0;overflow:hidden;height:0}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
 /*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
-#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:#fafcff}
-.highlight{color:#b6274e;font-weight:600}
-.highlight:hover{color:#b6274e;font-weight:600}
+#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:var(--background-color)}
+.highlight{color:var(--highlight-color);font-weight:600}
+.highlight:hover{color:var(--highlight-color);font-weight:600}
 
-.profile-rabbit {display:none}
+.profile-pendant {display:none}
 @media (min-width: 768px) {
-    .profile-rabbit {display:block}
+.profile-pendant {display:block}
 }
 
 .main-content{padding:0;text-align:center;cursor:default;text-align:center;}
 /*.main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
 /*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
-@media (min-width: 768px) {
-    .main-content{width:66%;min-width:668px;margin:auto;}
-}
-@media (min-width: 1200px) {
-    .main-content{width:66%;max-width:1080px;margin:auto;}
-}
-/*.main-content {
-    width:86.9791667%;
-    margin: 0 auto;
-}
-@media (min-width: 768px) {
-    .main-content{width:66%;min-width:668px;}
-}
-@media (min-width: 1200px) {
-    .main-content{width:66%;max-width:900px;}
-}*/
+@media (min-width: 768px) {.main-content{width:66%;min-width:668px;margin:auto;}}
+@media (min-width: 1200px) {.main-content{width:66%;max-width:1080px;margin:auto;}}
 
 /* Avatar, Name, etc. */
 #main-content-container{margin:0 auto;padding:15px 0 0;max-width:1080px;}
@@ -71,7 +68,7 @@ a:hover{color:#bc6262;cursor:pointer}
     #main-info-container .col-name{text-align:left;margin-top:0;}
 }
 #main-info-container .col-name .text{text-align:left}
-#main-info-container .col-name .name{margin:0;color:#566c7f;font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
+#main-info-container .col-name .name{margin:0;color:var(--main-color);font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
 #main-info-container .col-name .email{color:#666; font-size:14px}
 #main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
 #main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
@@ -83,60 +80,89 @@ a:hover{color:#bc6262;cursor:pointer}
 #main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
 
 /* Other */
-.main-more-container{width:100%;padding:0 30px}
+.content-container{width:100%;padding:0 30px}
+.main-news-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
+.main-news-container .subtitle{margin-top:0px;color:var(--main-color)}
 
-.main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-.main-bio-container .subtitle{margin-top:0px;color:#566c7f}
+section.overview ul,section.overview li,section.overview h3,section.overview h1,section.overview p{margin:0;padding:0}
+section.overview h1{font-weight:700}
+section.overview li{font-weight:400;list-style:none}
+.join,.up::after,.down::before{background-position:50% 50%}
+.up::after,.down::before{background-repeat:no-repeat;content:"";display:block;height:20px}
+.up::after{background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3IiBoZWlnaHQ9IjQiIHZpZXdCb3g9IjAgMCA3IDQiPjxwYXRoIGZpbGw9IiM1NjZjN2YiIGQ9Ik0xIDRWM2gxVjJoM3YxaDF2MWgxVjJINlYxSDVWMEgydjFIMXYxSDB2MiIvPjwvc3ZnPg==)}
+.down::before{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI3cHgiIGhlaWdodD0iNHB4IiB2aWV3Qm94PSIwIDAgNyA0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA3IDQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiM1NjZjN2YiIHBvaW50cz0iNiwwIDYsMSA1LDEgNSwyIDIsMiAyLDEgMSwxIDEsMCAwLDAgMCwyIDEsMiAxLDMgMiwzIDIsNCA1LDQgNSwzIDYsMyA2LDIgNywyIDcsMCAiLz48L3N2Zz4=)}
+.join{background-repeat:repeat-y;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSIwIDAgMSAxIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxIDEiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiM1NjZjN2YiIGQ9Ik0wLDBoMXYxSDBWMHoiLz48L3N2Zz4=)}
+.thin,.thick{background:#ffffff}
+.thin{border:1px solid var(--secondary-link-border-color);padding:.5em}
+.thick{border:3px solid var(--secondary-link-border-color);padding:.5em;color:var(--main-color);font-size:1.25rem}
+.main{text-align:center}
+.main ul{display:block;width:150px;margin:1em auto 0}
+ul.row{width:100%;display:flex;align-items:flex-start}
+ul.row li.page{flex:1;margin:0 .5em;min-width:280px}
+ul.row li.page.stretch{align-self:stretch}
+ul.row li.page:first-child{margin-left:0}
+ul.row li.page:last-child{margin-right:0}
+ul.row li.page h3 + ul.content{margin-top:1.5em}
+ul.row li.page ul.content li{border-top:1px solid var(--secondary-link-border-color);padding:2px 5px}
+ul.row li.page ul.content li.level-2{padding:2px 17px}
+ul.row li.page ul.content li ul.section li{border-top:none;padding:0}
+ul.row li.page ul.content li ul.section li:before{content:"― "}
+section.overview{background:var(--secondary-content-background-color);transition:max-width 400ms ease-in-out;padding:20px;margin:auto;z-index:99}
+section.overview .thin h3{will-change:auto;transition:transform 400ms ease-in-out;transform-origin:0 50%}
+section.overview .thin b{display:block;padding:2px 5px}
+section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
+@media (max-width: 1480px) {
+ul.row li.page{margin:0}
+}
 
-
-.toggle-overview {background:#fafcff;display:block;text-align:center;padding:5px;color:#566c7f;font-weight:500}
+.toggle-overview {background:var(--background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500}
 .toggle-overview:hover {text-decoration:none}
 /* @media (max-width: 560px) {section.overview {display:none}} */
 .thick>p {font-size: 1rem}
-.thick>p>a, .think>p>a:hover {background:#fafcff;display:block;text-align:center;padding:5px;color:#566c7f;font-weight:500;text-decoration:none}
+.thick>p>a, .think>p>a:hover {background:var(--link-button-background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500;text-decoration:none}
 
-#main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
-#main-pub-container .subtitle{color:#566c7f;}
-#main-pub-container .subtitle a {font-size:18px; color: #96a5b3; font-weight:400}
-#main-pub-container .subtitle a.activated {color:#333333; font-weight:600}
-#main-pub-container .subtitle a.activated:focus,
-#main-pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
+#pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
+#pub-container .subtitle{color:var(--main-color);}
+#pub-container .subtitle a {font-size:18px; color: var(--secondary-link-color); font-weight:400}
+#pub-container .subtitle a.activated {color:#333333; font-weight:600}
+#pub-container .subtitle a.activated:focus,
+#pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
 
-#main-pub-container .subtitle-aux {font-size:1rem}
-#main-pub-container .subtitle-aux a.activated {color:#333333}
-#main-pub-container .subtitle-aux a.activated:focus,
-#main-pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
-#main-pub-container .subtitle-aux .note{margin-left:1em;color:#999999;text-decoration:none;font-size:14px}
+#pub-container .subtitle-aux {font-size:1rem}
+#pub-container .subtitle-aux a.activated {color:#333333}
+#pub-container .subtitle-aux a.activated:focus,
+#pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
+#pub-container .subtitle-aux .note{margin-left:1em;color:#999999;text-decoration:none;font-size:14px}
 
-#main-pub-card-container{}
-#main-pub-card-container>h5{margin-bottom: 20px}
-#main-pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
-#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
-#main-pub-card-container .pub-card .col-r{padding-top:10px}
+#pub-card-container{}
+#pub-card-container>h5{margin-bottom: 20px}
+#pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
+#pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
+#pub-card-container .pub-card .col-r{padding-top:10px}
 @media (min-width: 768px) {
-  #main-pub-card-container .pub-card .col-l{flex:0 0 30%;max-width:30%}
-  #main-pub-card-container .pub-card .col-r{flex:0 0 70%;max-width:70%}
+  #pub-card-container .pub-card .col-l{flex:0 0 30%;max-width:30%}
+  #pub-card-container .pub-card .col-r{flex:0 0 70%;max-width:70%}
 }
-#main-pub-card-container .pub-card img{width:100%;margin:0 auto}
-#main-pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
-#main-pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
-#main-pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
-#main-pub-card-container .pub-card .authors a{color:#666666}
-#main-pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
-#main-pub-card-container .pub-card .conference{color:#333333;font-weight:600}
-#main-pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:14px}
-#main-pub-card-container .pub-card .info{margin-bottom:0;}
-#main-pub-card-container .row{margin:0}
-#main-pub-card-container .col-l,
-#main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
+#pub-card-container .pub-card img{width:100%;margin:0 auto}
+#pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
+#pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
+#pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
+#pub-card-container .pub-card .authors a{color:#666666}
+#pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
+#pub-card-container .pub-card .conference{color:#333333;font-weight:600}
+#pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:14px}
+#pub-card-container .pub-card .info{margin-bottom:0;}
+#pub-card-container .row{margin:0}
+#pub-card-container .col-l,
+#pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
 /* #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3} */
 #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;}
-#footer{background:url(static/img/girl-with-fish-bg.jpg); background-size: 15px 15px; background-repeat: repeat;}
+#footer{background:url(static/img/loong/loong-bottom-repeat.png); background-size: 15px 15px; background-repeat: repeat;}
 #footer .container{max-width:540px;padding:0 45px;position:relative}
 #footer .row{align-items:center}
 #footer .comic{padding-right:15px;padding-top:15px;}
-#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:left;display:block;font-size:1rem;line-height:1.4;color:#eeeeee}
+#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:center;display:block;font-size:1rem;line-height:1.4;color:var(--main-color)}
 #footer .stat{width:60px;height:60px;overflow:hidden;margin:0 auto 5px;padding 0;}
 @media (min-width: 420px){
   #footer .stat{display:block;width:60px;height:60px;overflow:hidden;margin:5px auto -25px;padding-right:15px;}
@@ -160,11 +186,12 @@ a:hover{color:#bc6262;cursor:pointer}
         <div id="main-content-container" class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-avatar">
-                    <img src="static/img/avatar18.jpg" class="avatar" />
+                    <img src="static/img/avatar20.jpg" class="avatar" />
                 </div>
-                <div class="col-sm-12 col-md-9">
+                <div class="col-sm-12 col-md-8">
                     <div id="main-info-container">
-                        <!--div class="profile-rabbit" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
+                        <!--div class="profile-pendant" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
+                        <div class="profile-loong" style="bottom:-30px;right:-200px;position:absolute"><img src="static/img/loong/loong.png" height=200px; /></div>
                         <div class="col-name">
                             <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
                             <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
@@ -181,8 +208,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
 </div>
 
 <div class="main-content">
-    <div class="main-more-container">
-        <div class="main-bio-container">
+    <div class="content-container">
+        <div class="main-news-container">
             <h5 class="subtitle">News</h5>
             <ul>
                 <li>
@@ -291,8 +318,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
         </div>
     </div>
 
-    <div class="main-more-container">
-        <div id="main-pub-container">
+    <div class="content-container">
+        <div id="pub-container">
             <h5 class="subtitle">Publications
             (
                 <a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
@@ -309,7 +336,57 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                 <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="nlp">Structured NLP</a>
                 <span class="note">(*/†: indicates equal contribution.)</span>
             </p>
-            <div id="main-pub-card-container" class="activated hide">
+            <div id="pub-card-container" class="activated hide">
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/perturbation-grounding-tracing.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body ">
+                                <h5 class="title">Grounding Language Plans in Demonstrations through Counter-factual Perturbations</h5>
+                                <h6 class="authors">
+                                    <a target="_blank" href="https://yanweiw.github.io/">Yanwei Wang</a>,
+                                    <a target="_blank" href="https://zswang666.github.io/">Tsun-Hsuan Wang</a>,
+                                    <u>Jiayuan Mao</u>,
+                                    <a target="_blank" href="https://www.hageneaux.com/">Michael Hagenow</a>,
+                                    <a target="_blank" href="https://interactive.mit.edu/about/people/julie">Julie Shah</a>
+                                </h6>
+                                <p class="info">
+                                  <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a> <span class="highlight">(Spotlight)</span>
+                                  <a href="https://openreview.net/forum?id=qoHeuRAcSl">Paper</a> /
+                                  <a href="https://sites.google.com/view/grounding-plans">Project Page</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/ada.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body ">
+                                <h5 class="title">Learning Adaptive Planning Representations with Natural Language Guidance</h5>
+                                <h6 class="authors">
+                                    <a target="_blank" href="https://web.mit.edu/zyzzyva/www/academic.html">Lio Wong</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a target="_blank" href="https://pratyushasharma.github.io/">Pratyusha Sharma</a>*,
+                                    <a target="_blank" href="https://www.zacharysiegel.org/">Zachary S. Siegel</a>,
+                                    <a target="_blank" href="https://jiahai-feng.github.io/">Jiahai Feng</a>,
+                                    <a target="_blank" href="https://www.linkedin.com/in/noakorneev/">Noa Korneev</a>,
+                                    <a target="_blank" href="https://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>,
+                                    <a target="_blank" href="https://www.mit.edu/~jda/">Jacob Andreas</a>
+                                </h6>
+                                <p class="info">
+                                  <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a>
+                                  <a href="https://arxiv.org/abs/2312.08566">Paper</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="pub-card" data-topic="concept-learning" data-year="2024" data-selected="false">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
@@ -326,11 +403,33 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                     <a target="_blank" href="https://cocosci.mit.edu/josh">Joshua B. Tenenbaum</a>
                                 </h6>
                                 <p class="info">
-                                    <!--a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a> <span class="highlight">(Spotlight)</span-->
-                                    <a href="javascript:;" class="conference">ArXiv</a>
+                                    <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a> <span class="highlight">(Spotlight)</span>
                                     <a href="https://arxiv.org/pdf/2310.08576.pdf">Paper</a>  /
                                     <a href="https://flow-diffusion.github.io/">Project Page</a> /
                                     <a href="https://github.com/flow-diffusion/AVDC">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/parl.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body ">
+                                <h5 class="title">Learning Planning Abstractions from Language</h5>
+                                <h6 class="authors">
+                                    <a target="_blank" href="http://weiyuliu.com/">Weiyu Liu</a>*,
+                                    <span>Geng Chen</span>*,
+                                    <a target="_blank" href="http://web.stanford.edu/~joycj/">Joy Hsu</a>,
+                                    <u>Jiayuan Mao</u>†,
+                                    <a target="_blank" href="https://jiajunwu.com">Jiajun Wu</a>†
+                                </h6>
+                                <p class="info">
+                                  <a target="_blank" href="https://iclr.cc/Conferences/2024" class="conference">ICLR 2024</a>
+                                    Coming soon.
                                 </p>
                             </div>
                         </div>
@@ -1290,9 +1389,10 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <div class="container">
         <div class="row">
             <!--div class="comic"><img src="static/img/rabbit-working.jpg" height="90px" /></div-->
-            <div class="comic"><img src="static/img/girl-with-fish.jpg" height="90px" /></div>
+            <!--div class="comic"><img src="static/img/girl-with-fish.jpg" height="90px" /></div-->
+            <div class="comic"><img src="static/img/loong/loong-bottom.png" height="120px" /></div>
             <div class="copyright">
-                &copy; 2015-2023 Jiayuan Mao<br />
+                &copy; 2015-2024 Jiayuan Mao<br />
                 <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
                 <!--Background photo: 798 Art Zone, Beijing, China. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.<br />-->
                 <!--Background photo: Solvang, CA, USA. 2017,
@@ -1331,7 +1431,7 @@ $.fn.isInViewport = function() {
 var allPublications = null;
 
 function playAllVideos() {
-  $("#main-pub-container video").each(function() {
+  $("#pub-container video").each(function() {
     this.play();
   });
 }
@@ -1342,15 +1442,15 @@ function publicationBySelected() {
         return ;
     }
 
-    $("#main-pub-container .subtitle a").removeClass("activated");
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    $("#pub-container .subtitle a").removeClass("activated");
+    $("#pub-container .subtitle-aux a").removeClass("activated");
     a.addClass("activated");
 
-    $("#main-pub-card-container").html("");
+    $("#pub-card-container").html("");
     for (var pubId = 0; pubId < allPublications.length; pubId++) {
         var pub = $(allPublications[pubId]);
         if (pub.data("selected") == true) {
-            $("#main-pub-card-container").append(pub);
+            $("#pub-card-container").append(pub);
         }
     }
     playAllVideos();
@@ -1362,17 +1462,17 @@ function publicationByDate() {
         return ;
     }
 
-    $("#main-pub-container .subtitle a").removeClass("activated");
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    $("#pub-container .subtitle a").removeClass("activated");
+    $("#pub-container .subtitle-aux a").removeClass("activated");
     a.addClass("activated");
 
-    $("#main-pub-card-container").html("");
+    $("#pub-card-container").html("");
     for (var pubId = 0; pubId < allPublications.length; pubId++) {
         if (pubId == 0 || $(allPublications[pubId-1]).data("year") != $(allPublications[pubId]).data("year")) {
             var year = $(allPublications[pubId]).data("year");
-            $("#main-pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
+            $("#pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
         }
-        $("#main-pub-card-container").append(allPublications[pubId]);
+        $("#pub-card-container").append(allPublications[pubId]);
     }
     playAllVideos();
 }
@@ -1382,19 +1482,19 @@ function publicationByTopicInner() {
     if (a.hasClass("activated")) {
         return ;
     }
-    $("#main-pub-container .subtitle a").removeClass("activated");
+    $("#pub-container .subtitle a").removeClass("activated");
     a.addClass("activated");
 
-    $("#main-pub-card-container").html("");
+    $("#pub-card-container").html("");
     for (var topicId in allTopics) {
         var topic = allTopics[topicId].name;
         var topicTitle = allTopics[topicId].title;
         // var topicTitle = topic.split("-").map(function (a) { return a[0].toUpperCase() + a.substr(1).toLowerCase(); }).join(" ");
-        $("#main-pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
+        $("#pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
         for (var pubId = 0; pubId < allPublications.length; pubId++) {
             var pub = $(allPublications[pubId]);
             if (pub.data("topic").indexOf(topic) != -1) {
-                $("#main-pub-card-container").append(pub);
+                $("#pub-card-container").append(pub);
             }
         }
     }
@@ -1405,13 +1505,13 @@ function publicationByTopicSpecificInner(a) {
         return false;
     }
 
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    $("#pub-container .subtitle-aux a").removeClass("activated");
     $(a).addClass("activated");
 }
 
 function publicationByTopic() {
     publicationByTopicInner();
-    publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
+    publicationByTopicSpecificInner($("#pub-container .subtitle-aux a:first"));
     playAllVideos();
     return true;
 }
@@ -1540,8 +1640,8 @@ $(function() {
     // fullBg();
     // animatedLink(400);
 
-    allPublications = $("#main-pub-card-container .pub-card");
-    allTopicsLink = $("#main-pub-container .subtitle-aux a");
+    allPublications = $("#pub-card-container .pub-card");
+    allTopicsLink = $("#pub-container .subtitle-aux a");
     allTopics = [];
     for (var topicId = 0; topicId < allTopicsLink.length; topicId++) {
         allTopics.push({name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html()});
@@ -1549,7 +1649,7 @@ $(function() {
 
     $("#publication-by-selected").click();
     // $("#publication-by-date").click();
-    $("#main-pub-card-container").removeClass("hide");
+    $("#pub-card-container").removeClass("hide");
 });
 </script>
 </body>
