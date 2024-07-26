@@ -17,6 +17,7 @@
     <![endif]-->
 
     <style type="text/css">
+/* Color Scheme: Orange / Yellow */
 :root {
     --background-color: #fefbf5;
     --highlight-color: #b6274e;
@@ -29,6 +30,20 @@
     --link-button-background-color: #fffdfa;
     /* a8826c 324d67 */
 }
+/* Color Scheme: Blue / Summer */
+:root {
+    --background-color: #f5fbfe;
+    --highlight-color: #b6274e;
+    --main-color: #225573;
+    --link-color: #547b5b;
+    --link-color-hover: #292c1f;
+    --secondary-link-color: #6d8436;
+    --secondary-link-border-color: #7d99b1;
+    --secondary-content-background-color: #feffff;
+    --link-button-background-color: #fafdff;
+    /* a8826c 324d67 */
+}
+
 body{margin:0;padding:0;}
 a{color:var(--link-color)}
 a:hover{color:var(--link-color-hover);cursor:pointer}
@@ -89,7 +104,6 @@ section.overview li{font-weight:400;list-style:none}
 .join{background-repeat:repeat-y;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxcHgiIGhlaWdodD0iMXB4IiB2aWV3Qm94PSIwIDAgMSAxIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxIDEiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiM1NjZjN2YiIGQ9Ik0wLDBoMXYxSDBWMHoiLz48L3N2Zz4=)}
 .thin,.thick{background:#ffffff}
 .thin{border:1px solid var(--secondary-link-border-color);padding:.5em}
-.thick{border:3px solid var(--secondary-link-border-color);padding:.5em;color:var(--main-color);font-size:1.25rem}
 .main{text-align:center}
 .main ul{display:block;width:150px;margin:1em auto 0}
 ul.row{width:100%;display:flex;align-items:flex-start}
@@ -111,7 +125,9 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 .toggle-overview {background:var(--background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500}
 .toggle-overview:hover {text-decoration:none}
 /* @media (max-width: 560px) {section.overview {display:none}} */
-.thick>p {font-size: 1rem}
+.thick{border:3px solid var(--secondary-link-border-color);padding:.5em;font-size:1.25rem}
+.thick>b{color:var(--main-color)}
+.thick>p{font-size: 1rem}
 .thick>p>a, .think>p>a:hover {background:var(--link-button-background-color);display:block;text-align:center;padding:5px;color:var(--main-color);font-weight:500;text-decoration:none}
 
 #pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
@@ -151,7 +167,7 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 
 /* #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3} */
 #footer{padding:0 0 0.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;}
-#footer{background:url(static/img/loong/loong-bottom-repeat.png); background-size: 15px 15px; background-repeat: repeat;}
+#footer{background:url(static/img/loong/loong-bottom-summer-repeat.png); background-size: 15px 15px; background-repeat: repeat;}
 #footer .container{max-width:540px;padding:0 45px;position:relative}
 #footer .row{align-items:center}
 #footer .comic{padding-right:15px;padding-top:15px;}
@@ -177,12 +193,12 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
         <div id="main-content-container" class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-avatar">
-                    <img src="static/img/avatar20.jpg" class="avatar" />
+                    <img src="static/img/avatar21.jpg" class="avatar" />
                 </div>
                 <div class="col-sm-12 col-md-8">
                     <div id="main-info-container">
                         <!--div class="profile-pendant" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
-                        <div class="profile-pendant"><img src="static/img/loong/loong.png" height=200px; /></div>
+                        <div class="profile-pendant"><img src="static/img/loong/loong-summer.png" height=200px; /></div>
                         <div class="col-name">
                             <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
                             <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
@@ -1474,7 +1490,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
         <div class="row">
             <!--div class="comic"><img src="static/img/rabbit-working.jpg" height="90px" /></div-->
             <!--div class="comic"><img src="static/img/girl-with-fish.jpg" height="90px" /></div-->
-            <div class="comic"><img src="static/img/loong/loong-bottom.png" height="120px" /></div>
+            <!--div class="comic"><img src="static/img/loong/loong-bottom.png" height="120px" /></div-->
+            <div class="comic"><img src="static/img/loong/loong-bottom-summer.png" height="120px" /></div>
             <div class="copyright">
                 &copy; 2015-2024 Jiayuan Mao<br />
                 <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
