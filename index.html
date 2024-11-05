@@ -310,12 +310,24 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     </li>
   </ul>
   <div class="main thick">
-    <b>Learning, Reasoning and Planning Algorithms</b>
+    <b>Learning, Reasoning and Planning Theories and Algorithms</b>
     <p>How can we efficiently learn these concepts from natural supervisions (<i>e.g.</i>, language, videos)?</p>
     <p>How can we leverage the structures of these concepts to make inference and planning faster?</p>
     <p><a href="javascript:$('#overview-algorithm ul.content').slideToggle();">Show/Hide Work on Algorithms</a></p>
   </div>
   <ul class="row" id="overview-algorithm">
+    <li class="page join down">
+      <div class="thin">
+        <b>Learning and Decision Theory</b>
+        <ul class="content hide">
+          <li><i>Relational Neural Network Learning</i>: <a target="_blank" href="https://sites.google.com/view/neural-logic-machines">[Neural Logic Machines]</a></li>
+          <li class="level-2">+ <i>Expressiveness and Generalization</i>: <a target="_blank" href="https://arxiv.org/pdf/2303.05490.pdf">[NLM Theory]</a></li>
+          <li class="level-2">+ <i>PAC Learning and Sample Complexity</i>: <a target="_blank" href="https://arxiv.org/pdf/2410.10101.pdf">[Polynomial MHLA]</a></li>
+          <li><i>Planning Complexity</i>: <a target="_blank" href="https://arxiv.org/pdf/2312.03682.pdf">[Regression Width]</a></li>
+          <li><i>Hybrid Policy and Planning</i>: <a target="_blank" href="https://parasollab.web.illinois.edu/events/wafr2024/papers/68_Hybrid_Declarative_Imperati.pdf">[CROW]</a></li>
+        </ul>
+      </div>
+    </li>
     <li class="page join down">
       <div class="thin">
         <b>Differentiable Concept Learning</b>
@@ -324,7 +336,6 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
           <li class="level-2">+ <i>Joint Syntax Learning</i>: <a target="_blank" href="http://g2l2.csail.mit.edu/">[G2L2]</a></li>
           <li class="level-2">+ <i>Enhancing Foundation Models</i>: <a target="_blank" href="https://web.stanford.edu/~joycj/projects/left_neurips_2023.html">[Logic-Enhanced FM]</a></li>
           <li><i>First-Order Logic Rules and Policies</i>: <a target="_blank" href="https://sites.google.com/view/neural-logic-machines">[Neural Logic Machines]</a></li>
-          <li class="level-2">+ <i>Expressiveness and Generalization</i>: <a target="_blank" href="https://arxiv.org/pdf/2303.05490.pdf">[NLM Theory]</a></li>
           <li class="level-2">+ <i>Sparse and Locality</i>: <a target="_blank" href="https://spaloc.csail.mit.edu/">[SpaLoc Networks]</a></li>
           <li class="level-2">+ <i>Diffusion</i>: <a target="_blank" href="https://energy-based-model.github.io/ired">[Diffusion-as-Adaptive-Reasoning]</a></li>
           <li><i>Temporal Logic Rules and Policies</i>: <a target="_blank" href="http://toqnet.csail.mit.edu">[TOQ Networks]</a></li>
@@ -336,12 +347,11 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
       <div class="thin">
         <b>Planning</b>
         <ul class="content hide">
-          <li><i>Planning with Hybrid Declarative-Imperative Representations</i>: <a href="javascript:;">[CROW]</a></li>
+          <li><i>Planning with Hybrid Declarative-Imperative Representations</i>: <a href="https://parasollab.web.illinois.edu/events/wafr2024/papers/68_Hybrid_Declarative_Imperati.pdf">[CROW]</a></li>
           <li><i>Planner with Neuro-Symbolic Domain Models</i>: <a target="_blank" href="https://pdsketch.csail.mit.edu/">[PDSketch]</a></li>
           <li class="level-2">+ <i>Planning with Mechanisms</i>: <a target="_blank" href="https://arxiv.org/pdf/2311.03293.pdf">[Manipulation Mechanisms]</a></li>
           <li><i>Neuro-Symbolic Constraint Solver</i>: <a target="_blank" href="https://diffusion-ccsp.github.io/">[Diffusion CCSP]</a></li>
           <li class="level-2">+ <i>Constraints from Language</i>: <a target="_blank" href="https://arxiv.org/pdf/2405.11928.pdf">[Functional Arrangement]</a></li>
-          <li><i>Planning Complexity</i>: <a target="_blank" href="https://concepts-ai.com/p/goal-regression-width/regression_width_neurips2023.pdf">[Regression Width]</a></li>
         </ul>
       </div>
     </li>
@@ -370,6 +380,107 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                 <span class="note">(*/†: indicates equal contribution.)</span>
             </p>
             <div id="pub-card-container" class="activated hide">
+                <div class="pub-card" data-topic="machine-learning" data-year="2024" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/polynomial-mhla.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Learning Linear Attention in Polynomial Time</h5>
+                                <h6 class="authors">
+                                    <a href="#" target="_blank">Morris Yau</a>,
+                                    <a href="#" target="_blank">Eykin Akyurek</a>,
+                                    <u>Jiayuan Mao</u>,
+                                    <a href="https://cocosci.mit.edu/josh" target="_blank">Joshua B. Tenenbaum</a>,
+                                    <br />
+                                    <a href="#" target="_blank">Stefanie Jegelka</a>,
+                                    <a href="#" target="_blank">Jacob Andreas</a>
+                                </h6>
+                                <p class="info">
+                                    <a href="javascript:;" class="conference">ArXiv 2024</a>
+                                    <a target="_blank" href="https://arxiv.org/abs/2410.10101">Paper</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                          <video width="100%" height="100%" autoplay muted playsinline loop><source src="data/projects/magic.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">One-Shot Manipulation Strategy Learning by Making Contact Analogies</h5>
+                                <h6 class="authors">
+                                    <a href="https://yuyaoliu.me/" target="_blank">Yuyao Liu</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="https://cocosci.mit.edu/josh" target="_blank">Joshua Tenenbaum</a>,
+                                    <a href="https://people.csail.mit.edu/tlp/" target="_blank">Tomás Lozano-Pérez</a>,
+                                    <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Pack Kaelbling</a>
+                                </h6>
+                                <p class="info">
+                                    <a target="_blank" href="https://leap-workshop.github.io/" class="conference">CoRL Workshop on Learning Effective Abstractions for Planning 2024</a>
+                                    <a target="_blank" href="https://magic-2024.github.io/magic.pdf">Paper</a> /
+                                    <a target="_blank" href="https://magic-2024.github.io">Project Page</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/projects/kalm.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Keypoint Abstraction using Large Models for Object-Relative Imitation Learning</h5>
+                                <h6 class="authors">
+                                    <a href="https://fang-xiaolin.github.io/" target="_blank">Xiaolin Fang</a>*,
+                                    <a href="https://borueihuang.com/" target="_blank">Bo-Ruei Huang</a>*,
+                                    <u>Jiayuan Mao</u>*,
+                                    <a href="https://jasshone.github.io/" target="_blank">Jasmine Shone</a>,
+                                    <a href="https://cocosci.mit.edu/josh" target="_blank">Joshua B. Tenenbaum</a>,
+                                    <a href="https://people.csail.mit.edu/tlp/" target="_blank">Tomás Lozano-Pérez</a>,
+                                    <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Pack Kaelbling</a>
+                                </h6>
+                                <p class="info">
+                                    <a target="_blank" href="https://sites.google.com/view/langrob-corl24/" class="conference">CoRL 2024 Workshop on Language and Robot Learning</a> <span class="highlight">(Oral)</span>
+                                    <a href="https://arxiv.org/pdf/2410.23254">Paper</a> /
+                                    <a href="https://kalm-il.github.io">project page</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <video width="100%" height="100%" autoplay muted playsinline loop><source src="data/projects/blade.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">BLADE: Learning Compositional Behaviors from Demonstration and Language</h5>
+                                <h6 class="authors">
+                                    <a href="#" target="_blank">Weiyu Liu</a>*,
+                                    <a href="#" target="_blank">Neil Nie</a>*,
+                                    <a href="#" target="_blank">Ruohan Zhang</a>,
+                                    <u>Jiayuan Mao</u>†,
+                                    <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>†
+                                </h6>
+                                <p class="info">
+                                    <a target="_blank" href="https://corl.org" class="conference">CoRL 2024</a>
+                                    <a target="_blank" href="https://blade-bot.github.io/blade.pdf">Paper</a> /
+                                    <a target="_blank" href="https://blade-bot.github.io">Project Page</a>
+                                    <br />
+                                    Presented at <a target="_blank" href="https://leap-workshop.github.io/" class="conference">CoRL 2024 Workshop on Learning Effective Abstractions for Planning</a> <span class="highlight">(Oral)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="pub-card" data-topic="reasoning-planning" data-year="2024" data-selected="true">
                     <div class="row">
                         <div class="col-l col-xs-12 col-lg-3">
@@ -1159,8 +1270,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                 <h6 class="authors">
                                     <a target="_blank" href="https://cs.stanford.edu/~rcwang/">Ruocheng Wang</a>*,
                                     <u>Jiayuan Mao</u>*,
-                                    <a target="_blank" href="https://gershmanlab.com/people/sam.html">Samuel J. Gershman</a>,
-                                    <a target="_blank" href="https://jiajunwu.com">Jiajun Wu</a>
+                                    <a target="_blank" href="https://gershmanlab.com/people/sam.html">Samuel J. Gershman</a>†,
+                                    <a target="_blank" href="https://jiajunwu.com">Jiajun Wu</a>†
                                 </h6>
                                 <p class="info">
                                     <a target="_blank" href="http://www.acl2021.org" class="conference">ACL 2021 (Findings)</a>
