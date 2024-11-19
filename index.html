@@ -57,6 +57,7 @@ a:hover{color:var(--link-color-hover);cursor:pointer}
 
 .profile-pendant {display:none;bottom:-15px;right:-200px;position:absolute}
 @media (min-width: 768px) { .profile-pendant {display:block} }
+@media (max-width: 767px) { .profile-pendant {display:none} }
 
 .main-content{padding:0;text-align:center;cursor:default;text-align:center;}
 /*.main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
@@ -77,7 +78,7 @@ a:hover{color:var(--link-color-hover);cursor:pointer}
 #main-info-container .col-name{text-align:center;margin-top:30px}
 @media (min-width: 768px) { #main-info-container .col-name{text-align:left;margin-top:0;}
 }
-#main-info-container .col-name .text{text-align:left}
+#main-info-container .col-name .text{text-align:left;margin-bottom:0.5rem;}
 #main-info-container .col-name .name{margin:0;color:var(--main-color);font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
 #main-info-container .col-name .email{color:#666; font-size:14px}
 #main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
@@ -92,8 +93,12 @@ a:hover{color:var(--link-color-hover);cursor:pointer}
 /* Other */
 .content-container{width:100%;padding:0 30px}
 .main-news-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-@media (min-width: 1200px) { .main-news-container{padding-top:45px;} }
+@media (min-width: 1200px) { .main-news-container{padding-top:20px;} }
 .main-news-container .subtitle{margin-top:0px;color:var(--main-color)}
+.main-news-container .news-list{margin-bottom:0rem}
+
+#news-more{margin-top:0rem}
+#news-more-button{margin-left:40px;margin-top:0.5rem;}
 
 section.overview ul,section.overview li,section.overview h3,section.overview h1,section.overview p{margin:0;padding:0}
 section.overview h1{font-weight:700}
@@ -207,6 +212,7 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 Prof. <a href="https://cocosci.mit.edu/josh", target="_blank"> Josh Tenenbaum</a> and
 Prof. <a href="https://people.csail.mit.edu/lpk/" target="_blank">Leslie Kaelbling</a>.
 Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghua.edu.cn/" target="_blank">YaoClass</a>, Tsinghua University.</p>
+                            <p class="text"> <span>I am on the job market 2024-2025.</span> Links: <a href="data/CV.latest.pdf">CV</a></p>
                         </div>
                     </div>
                 </div>
@@ -219,8 +225,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
     <div class="content-container">
         <div class="main-news-container">
             <h5 class="subtitle">News</h5>
-            <ul>
-                <li style="font-weight:600">I am on the job market 2024-2025.</li>
+            <ul class="news-list">
                 <li>
                     To junior PhD/master/undergraduate students: if you would like to chat about life, career plan, or research ideas related to AI/ML, feel free to email me to schedule a meeting.
                     I will dedicate 30 mins every week for such meetings. I encourage students from <i><a href="javascript:$('#popover-underrepresented').slideToggle();">underrepresented groups</a></i> to reach out and will prioritize these meetings.
@@ -230,6 +235,8 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                 <li>I'm co-organizing the <a href="https://leap-workshop.github.io/index.html" target="_blank">Workshop on Learning Effective Abstractions for Planning</a> at CoRL 2024.</li>
                 <li>I was selected as a <a href="https://risingstars-eecs.mit.edu/" target="_blank">Rising Star in EECS</a> 2024.</li>
                 <li>I was selected as a <a href="https://genai-workshop.cs.umass.edu/" target="_blank">Rising Star in Generative AI</a> 2024.</li>
+            </ul>
+            <ul class="news-list" style="display:none" id="news-more">
                 <li>I'm co-organizing and will be giving a talk at the <a href="https://sites.google.com/cs.stanford.edu/visualconcepts" target="_blank">Workshop on Visual Concepts</a> at ECCV 2024.</li>
                 <li>I will be giving a talk at the <a href="https://sites.google.com/view/icra2024-ws-bi-mp/home">Bimanual Manipulation: On Kitchen Challenges</a> workshop at ICRA 2024.</li>
                 <li>I will be giving a talk at the <a href="https://h2r.github.io/brown-lab-talks/">Brown Robotics Talks</a> at Brown University. (<a href="data/2024-04-19-brown-compositional-action-abstractions.pdf" target="_blank">Slides: Compositional Action Representations</a>)</li>
@@ -241,6 +248,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                 <li>I'm co-organizing the <a href="https://vigilworkshop.github.io" target="_blank">Visually Grounded Interaction and Language (VIGIL)</a> workshop at NAACL 2021.</li>
                 <li>I'm co-organizing the <a href="http://nscv.csail.mit.edu/" target="_blank">Neuro-Symbolic Visual Reasoning and Program Synthesis</a> tutorial at CVPR 2020.</li>
             </ul>
+            <a id="news-more-button" href="javascript:toggleNews();" data-expanded="true">Click to show older news ...</a>
 
             <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
             <p>
@@ -454,6 +462,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                 </h6>
                                 <p class="info">
                                     <a target="_blank" href="https://sites.google.com/view/langrob-corl24/" class="conference">CoRL 2024 Workshop on Language and Robot Learning</a> <span class="highlight">(Best Paper)</span>
+                                    <br />
                                     <a href="https://arxiv.org/pdf/2410.23254">Paper</a> /
                                     <a href="https://kalm-il.github.io">project page</a>
                                 </p>
@@ -481,7 +490,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                     <a target="_blank" href="https://blade-bot.github.io/blade.pdf">Paper</a> /
                                     <a target="_blank" href="https://blade-bot.github.io">Project Page</a>
                                     <br />
-                                    Presented at <a target="_blank" href="https://leap-workshop.github.io/" class="conference">CoRL 2024 Workshop on Learning Effective Abstractions for Planning</a> <span class="highlight">(Oral)</span>
+                                    <a target="_blank" href="https://leap-workshop.github.io/" class="conference">CoRL 2024 Workshop on Learning Effective Abstractions for Planning</a> <span class="highlight">(Oral)</span>
                                 </p>
                             </div>
                         </div>
@@ -662,7 +671,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                   <a target="_blank" href="https://roboticsconference.org/" class="conference">RSS 2024</a>
                                   <a target="_blank" href="https://arxiv.org/pdf/2405.11928">Paper</a>
                                   <br />
-                                  Presented at <a target="_blank" href="https://sites.google.com/view/rss-taskspec/" class="conference">RSS Workshop on Task Specification for General-Purpose Intelligent Robots</a>
+                                  <a target="_blank" href="https://sites.google.com/view/rss-taskspec/" class="conference">RSS Workshop on Task Specification for General-Purpose Intelligent Robots</a>
                                 </p>
                             </div>
                         </div>
@@ -838,7 +847,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                     <a target="_blank" href="https://arxiv.org/pdf/2311.03293.pdf">Paper</a> /
                                     <a target="_blank" href="https://concepts-ai.com/p/mechanisms">Supplementary Videos</a>
                                     <br />
-                                    Presented at <a target="_blank" href="https://sites.google.com/view/iros2023-contactrich" class="conference">IROS 2023 Workshop on Leveraging Models for Contact-Rich Manipulation</a> <span class="highlight">(Spotlight)</span>
+                                    <a target="_blank" href="https://sites.google.com/view/iros2023-contactrich" class="conference">IROS 2023 Workshop on Leveraging Models for Contact-Rich Manipulation</a> <span class="highlight">(Spotlight)</span>
                                     (<a target="_blank" href="https://concepts-ai.com/p/mechanisms/mechanisms_iros_talk.pdf">Slides</a> /
                                     <a target="_blank" href="https://youtu.be/g1VDAuiIoqA?t=13497">Video</a>)
                                 </p>
@@ -916,7 +925,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                     <a target="_blank" href="http://web.stanford.edu/~joycj/projects/ns3d_cvpr_2023.html">Project Page</a> /
                                     <a target="_blank" href="https://github.com/joyhsu0504/NS3D">Code</a>
                                     <br />
-                                    Presented at <a target="_blank" href="https://3dcompat-dataset.org/workshop/" class="conference">CVPR 2023 Workshop On Compositional 3D Vision</a> <span class="highlight">(Oral)</span>
+                                    <a target="_blank" href="https://3dcompat-dataset.org/workshop/" class="conference">CVPR 2023 Workshop On Compositional 3D Vision</a> <span class="highlight">(Oral)</span>
                                 </p>
                             </div>
                         </div>
@@ -1539,7 +1548,7 @@ Previously, she obtained her Bachelor's degree from <a href="http://iiis.tsinghu
                                     <span class="highlight">(Oral)</span>
                                     <a target="_blank" href="https://arxiv.org/pdf/1904.05521.pdfv1">Paper</a>
                                     <br />
-                                    Presented at <a target="_blank" href="https://splu-robonlp.github.io/" class="conference">NAACL 2019 SpLU-RoboNLP</a>
+                                    <a target="_blank" href="https://splu-robonlp.github.io/" class="conference">NAACL 2019 SpLU-RoboNLP</a>
                                 </p>
                             </div>
                         </div>
@@ -1872,6 +1881,18 @@ function publicationByTopicSpecific(a) {
 
     playAllVideos();
     return false;
+}
+
+function toggleNews(linkElement) {
+    $("#news-more").slideToggle();
+    var e = $("#news-more-button");
+    if (e.data("expanded")) {
+        e.html("Click to hide old news ...");
+        e.data("expanded", false);
+    } else {
+        e.html("Click to show older news ...");
+        e.data("expanded", true);
+    }
 }
 
 $(function() {
