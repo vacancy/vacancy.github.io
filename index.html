@@ -44,6 +44,20 @@
     --link-button-background-color: #fafdff;
     /* a8826c 324d67 */
 }
+/* Color Scheme: NYC Flower */
+:root {
+    /* --background-color: #f5fbfe; */
+    --background-color: #FCFAF1;
+    --highlight-color: #b6274e;
+    --main-color: #3F6139;
+    --link-color: #ad4b73;
+    --link-color-hover: #292c1f;
+    --secondary-link-color: #6d8436;
+    --secondary-link-border-color: #7d99b1;
+    --secondary-content-background-color: #feffff;
+    --link-button-background-color: #fafdff;
+    /* a8826c 324d67 */
+}
 
 body{margin:0;padding:0;}
 a{color:var(--link-color)}
@@ -51,7 +65,7 @@ a:hover{color:var(--link-color-hover);cursor:pointer}
 #background{position:fixed;top:0;overflow:hidden;height:0}
 #wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
 /*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
-#main{margin:0 auto 15px;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:var(--background-color)}
+#main{margin:0 auto 30px;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:var(--background-color)}
 .highlight{color:var(--highlight-color);font-weight:600}
 .highlight:hover{color:var(--highlight-color);font-weight:600}
 
@@ -79,8 +93,8 @@ a:hover{color:var(--link-color-hover);cursor:pointer}
 @media (min-width: 768px) { #main-info-container .col-name{text-align:left;margin-top:0;}
 }
 #main-info-container .col-name .text{text-align:left;margin-bottom:0.5rem;}
-#main-info-container .col-name .name{margin:0;color:var(--main-color);font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
-#main-info-container .col-name .email{color:#666; font-size:14px}
+#main-info-container .col-name .name{color:var(--main-color);font-size:1.85em;font-family:"Source Sans Pro",Helvetica,sans-serif}
+#main-info-container .col-name .email{color:#333;font-size:16px}
 #main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
 #main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
 #main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
@@ -171,7 +185,7 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
 #pub-card-container .col-l,
 #pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
 
-#footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#D4DBDC}
+#footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:var(--background-color)}
 /* #footer{padding:0 0 0.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;min-height:80px;} */
 /* #footer{background:url(static/img/loong/loong-bottom-summer-repeat.png); background-size: 15px 15px; background-repeat: repeat;} */
 #footer .container{max-width:540px;padding:0 45px;position:relative}
@@ -199,20 +213,19 @@ section.overview .thin ul.content{transition:opacity 200ms ease;opacity:1}
         <div id="main-content-container" class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-avatar">
-                    <img src="static/img/avatar24.jpg" class="avatar" />
+                    <img src="static/img/avatar25.png" class="avatar" />
                 </div>
-                <div class="col-sm-12 col-md-8">
+                <div class="col-sm-12 col-md-9">
                     <div id="main-info-container">
                         <!--div class="profile-pendant" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
                         <!--div class="profile-pendant"><img src="static/img/loong/loong-summer.png" height=200px; /></div-->
                         <div class="col-name">
                             <h1 class="name"><span>Jiayuan Mao 茅佳源</span></h1>
-                            <p class="email">Email: jiayuanm [at] mit [dot] edu</p>
+                            <p class="email"><span style="margin-right:1em">Email: jiayuanm [at] mit [dot] edu</span> Links: <a href="data/CV.latest.pdf">CV</a> | <a href="data/RS.latest.pdf">Research Statement</a></p>
                             <p class="text">Jiayuan Mao is a PhD candidate at <a target="_blank" href="https://www.eecs.mit.edu">MIT EECS</a>, advised by
 Prof. <a target="_blank" href="https://cocosci.mit.edu/josh"> Josh Tenenbaum</a> and
 Prof. <a target="_blank" href="https://people.csail.mit.edu/lpk/">Leslie Kaelbling</a>.
-Previously, she obtained her Bachelor's degree from <a target="_blank" href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University.</p>
-                            <p class="text"> <span style="font-weight:500">I am on the job market 2024-2025. Links:</span> <a href="data/CV.latest.pdf">CV</a> | <a href="data/RS.latest.pdf">Research Statement</a></p>
+She obtained her Bachelor's degree from <a target="_blank" href="http://iiis.tsinghua.edu.cn/">YaoClass</a>, Tsinghua University. </p>
                         </div>
                     </div>
                 </div>
@@ -1786,7 +1799,7 @@ Previously, she obtained her Bachelor's degree from <a target="_blank" href="htt
             <!--div class="comic"><img src="static/img/loong/loong-bottom-summer.png" height="120px" /></div-->
             <div class="copyright">
                 &copy; 2015-2024 Jiayuan Mao<br />
-                <span style="color: #D4DBDC">Dedicated to my fiancée 柚</span>
+                <span style="color:var(--background-color)">Dedicated to my fiancée 柚</span>
                 <!--p style="font-size:12px">Background photo: Rainbow Bridge (レインボーブリッジ) @ Tokyo, Japan, 2016</p-->
                 <!--Background photo: 798 Art Zone, Beijing, China. 2019, by <a href="https://www.instagram.com/42x00/">42x00</a>.<br />-->
                 <!--Background photo: Solvang, CA, USA. 2017.-->
